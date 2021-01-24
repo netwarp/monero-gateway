@@ -1,0 +1,47 @@
+<script>
+	import ioClient from 'socket.io-client'
+	import swal from 'sweetalert'
+
+
+	let io = ioClient()
+
+
+	io.on('tx_done', (tx) => {
+		swal('Good job!', 'You clicked the button!', 'success')
+	})
+</script>
+
+<div class="dero-payment-container">
+	<div class="dero-payment-header">
+		<div class="title">
+			Dero Payment Button
+		</div>
+	</div>
+	<div class="dero-payment-body">
+		
+		<div class="alert success hide">
+			
+		</div>
+
+		<canvas id="canvas"></canvas>
+		
+		<div class="amount">
+			
+		</div>
+
+		<input class="address" id="address" value="">
+		
+		<div class="timer">
+			
+		</div>
+
+		<div class="timer-container">
+			<div class="timer-bar">
+				
+			</div>
+		</div>
+	</div>
+	<div class="dero-payment-footer">
+		Privacy Together
+	</div>
+</div>
