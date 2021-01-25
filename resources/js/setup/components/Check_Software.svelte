@@ -40,8 +40,8 @@
 		{/each}
 
 		<div class="d-flex justify-content-between mt-3">
-			<button class="btn btn-primary" on:click={ () => $slide-- }>Previous</button>
-			<button class="btn btn-primary" on:click={ () => $slide++ }>Next</button>
+			<button class="btn btn-primary" on:click={ () => $slide-- }><i class="bi bi-arrow-left-short"></i> Previous</button>
+			<button class="btn btn-primary" on:click={ () => $slide++ }>Next <i class="bi bi-arrow-right-short"></i></button>
 		</div>		
 	</div>
 </div>

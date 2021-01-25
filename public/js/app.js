@@ -9308,6 +9308,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/setup.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/setup.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/parseqs/index.js":
 /*!***************************************!*\
   !*** ./node_modules/parseqs/index.js ***!
@@ -15110,7 +15123,8 @@ module.exports = yeast;
 /******/ 		
 /******/ 		var deferredModules = [
 /******/ 			["./resources/js/app.js"],
-/******/ 			["./resources/sass/app.scss"]
+/******/ 			["./resources/sass/app.scss"],
+/******/ 			["./resources/sass/setup.scss"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
 /******/ 		

@@ -19,7 +19,7 @@
 		</div>
 
 		<div class="d-flex justify-content-end mt-3">
-			<button class="btn btn-primary btn-" on:click={ () => $slide++ }>Start</button>
+			<button class="btn btn-primary btn-" on:click={ () => $slide++ }>Start <i class="bi bi-arrow-right-short"></i></button>
 		</div>
 	</div>
 </div>
