@@ -3,7 +3,7 @@ const app = require('express')()
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
 const  nunjucks = require('nunjucks')
-
+const bodyParser = require('body-parser')
 const redis = require('redis')
 const redis_client = redis.createClient()
 redis_client.on("error", function(error) {
@@ -28,18 +28,17 @@ subscriber.on("message",(channel, message) => {
 	io.sockets.emit('tx_done', message)
 })
 
-subscriber.subscribe("tx");
+subscriber.subscribe("tx")
 
-
+app.use(bodyParser.json())
 app.use(express.static('public'))
 
+const web_router = require('./routes/web')
+const api_router = require('./routes/api')
 
-app.get('/', async (req, res) => {
+app.use('/', web_router)
+app.use('/api', api_router)
 
-	await res.render('gateway.html', {
-		name: "world" // renders ./pages/Home.html with props {name: "world"}
-	});
-})
 
 io.on('connection', (socket) => {
 	console.log('a user connected')

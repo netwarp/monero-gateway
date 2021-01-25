@@ -2,6 +2,7 @@ let mix = require('laravel-mix')
 
 require('laravel-mix-svelte')
 
+// gateway
 mix
 	.js('resources/js/app.js', 'public/js')
   	.sass('resources/sass/app.scss', 'public/css')
@@ -9,3 +10,8 @@ mix
     .svelte({
         dev: true
     })
+
+// setup
+mix
+	.js('resources/js/setup/setup.js', 'public/js')
+	.svelte()
