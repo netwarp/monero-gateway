@@ -5,6 +5,11 @@ const io = require('socket.io')(http)
 const  nunjucks = require('nunjucks')
 const bodyParser = require('body-parser')
 const redis = require('redis')
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/gateway', {useNewUrlParser: true, useUnifiedTopology: true});
+
+
 const redis_client = redis.createClient()
 redis_client.on("error", function(error) {
 	console.error(error)

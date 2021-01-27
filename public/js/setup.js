@@ -2295,11 +2295,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
-/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/internal */ "./node_modules/svelte/internal/index.mjs");
-/* harmony import */ var _stores__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_stores */ "./resources/js/setup/_stores.js");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
-/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! svelte/internal */ "./node_modules/svelte/internal/index.mjs");
+/* harmony import */ var _stores__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_stores */ "./resources/js/setup/_stores.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert */ "./node_modules/sweetalert/dist/sweetalert.min.js");
+/* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -2317,144 +2323,349 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 /* resources/js/setup/components/Check_Database.svelte generated by Svelte v3.31.2 */
 
 
 
 
+
 function create_fragment(ctx) {
-  var div25;
+  var div12;
   var div0;
   var t1;
-  var div24;
-  var div1;
-  var t3;
+  var div11;
   var form;
-  var fieldset0;
-  var t14;
-  var fieldset1;
-  var t22;
-  var div22;
+  var fieldset;
+  var legend;
+  var t3;
+  var div4;
+  var div3;
+  var div2;
+  var t5;
+  var input0;
+  var t6;
+  var div8;
+  var div7;
+  var div6;
+  var t8;
+  var input1;
+  var t9;
+  var div9;
   var button0;
-  var t24;
+  var t11;
   var button1;
-  var t25;
+  var t12;
   var button1_class_value;
-  var t26;
-  var div23;
+  var t13;
+  var div10;
   var button2;
-  var t28;
+  var t15;
   var button3;
-  var t29;
+  var t16;
   var i1;
   var button3_class_value;
   var mounted;
   var dispose;
   return {
     c: function c() {
-      div25 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
       div0.textContent = "Check database";
-      t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      div24 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      div1.innerHTML = "<code>CREATE DATABASE &quot;gateway&quot; WITH OWNER &quot;postgres&quot; ENCODING &#39;UTF8&#39; LC_COLLATE = &#39;en_US.UTF-8&#39; LC_CTYPE = &#39;en_US.UTF-8&#39;;</code>";
-      t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      form = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("form");
-      fieldset0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("fieldset");
-      fieldset0.innerHTML = "<legend>Check database</legend> \n\n\t\t\t\t<div class=\"form-group mb-3\"><div class=\"input-group\"><div class=\"input-group-prepend\"><div class=\"input-group-text\">Username</div></div> \n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroupUsername\" placeholder=\"Username\"/></div></div> \n\n\t\t\t\t<div class=\"form-group mb-3\"><div class=\"input-group\"><div class=\"input-group-prepend\"><div class=\"input-group-text\">Password</div></div> \n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroupUsername\" placeholder=\"Password\"/></div></div> \n\n\t\t\t\t<div class=\"form-group mb-3\"><div class=\"input-group\"><div class=\"input-group-prepend\"><div class=\"input-group-text\">Database</div></div> \n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroupUsername\" placeholder=\"Database\"/></div></div>";
-      t14 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      fieldset1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("fieldset");
-      fieldset1.innerHTML = "<legend>Admin user</legend> \n\n\t\t\t\t<div class=\"form-group mb-3\"><div class=\"input-group\"><div class=\"input-group-prepend\"><div class=\"input-group-text\">Name</div></div> \n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroupUsername\" placeholder=\"Name\"/></div></div> \n\n\t\t\t\t<div class=\"form-group mb-3\"><div class=\"input-group\"><div class=\"input-group-prepend\"><div class=\"input-group-text\">Password</div></div> \n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroupUsername\" placeholder=\"Password\"/></div></div>";
-      t22 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      div22 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      button0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
+      t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      div11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      form = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("form");
+      fieldset = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("fieldset");
+      legend = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("legend");
+      legend.textContent = "Admin user";
+      t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      div4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      div2.innerHTML = "<div class=\"input-group-text\">Name</div>";
+      t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      input0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("input");
+      t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      div8 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      div7 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      div6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      div6.innerHTML = "<div class=\"input-group-text\">Password</div>";
+      t8 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      input1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("input");
+      t9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      div9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      button0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("button");
       button0.textContent = "Test database";
-      t24 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      button1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
-      t25 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)("Create tables");
-      t26 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      div23 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      button2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
+      t11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      button1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("button");
+      t12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.text)("Create uer");
+      t13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      div10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
+      button2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("button");
       button2.innerHTML = "<i class=\"bi bi-arrow-left-short\"></i> Previous";
-      t28 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
-      button3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
-      t29 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)("Next ");
-      i1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("i");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div0, "class", "card-header");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div1, "class", "mb-3");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button0, "class", "btn btn-secondary");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button0, "type", "button");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button1, "class", button1_class_value = "btn btn-secondary " + (!test_connection ? "disabled" : ""));
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button1, "type", "button");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div22, "class", "form-group mb-3");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button2, "class", "btn btn-primary");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(i1, "class", "bi bi-arrow-right-short");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button3, "class", button3_class_value = "btn btn-primary " + (!tables_created ? "disabled" : ""));
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div23, "class", "d-flex justify-content-between mt-3");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div24, "class", "card-body");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div25, "class", "card");
+      t15 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      button3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("button");
+      t16 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.text)("Next ");
+      i1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("i");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div0, "class", "card-header");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div2, "class", "input-group-prepend");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input0, "type", "text");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input0, "class", "form-control");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input0, "id", "inlineFormInputGroupUsername");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input0, "placeholder", "Name");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div3, "class", "input-group");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div4, "class", "form-group mb-3");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div6, "class", "input-group-prepend");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input1, "type", "text");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input1, "class", "form-control");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input1, "id", "inlineFormInputGroupUsername");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input1, "placeholder", "Password");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div7, "class", "input-group");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div8, "class", "form-group mb-3");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button0, "class", "btn btn-secondary");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button0, "type", "button");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button1, "class", button1_class_value = "btn btn-secondary " + (!
+      /*test_connection*/
+      ctx[0] ? "disabled" : ""));
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button1, "type", "button");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div9, "class", "form-group mb-3");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button2, "class", "btn btn-primary");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(i1, "class", "bi bi-arrow-right-short");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button3, "class", button3_class_value = "btn btn-primary " + (!
+      /*user_created*/
+      ctx[1] ? "disabled" : ""));
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div10, "class", "d-flex justify-content-between mt-3");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div11, "class", "card-body");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div12, "class", "card");
     },
     m: function m(target, anchor) {
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div25, anchor);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div25, div0);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div25, t1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div25, div24);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div24, div1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div24, t3);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div24, form);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(form, fieldset0);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(form, t14);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(form, fieldset1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(form, t22);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(form, div22);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div22, button0);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div22, t24);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div22, button1);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button1, t25);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div24, t26);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div24, div23);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div23, button2);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div23, t28);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div23, button3);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button3, t29);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button3, i1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.insert)(target, div12, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div12, div0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div12, t1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div12, div11);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div11, form);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, fieldset);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(fieldset, legend);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(fieldset, t3);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(fieldset, div4);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div4, div3);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div3, div2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div3, t5);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div3, input0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input0,
+      /*user*/
+      ctx[2].name);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(fieldset, t6);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(fieldset, div8);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div8, div7);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div7, div6);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div7, t8);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div7, input1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input1,
+      /*user*/
+      ctx[2].password);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, t9);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, div9);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div9, button0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div9, t11);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div9, button1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(button1, t12);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div11, t13);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div11, div10);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div10, button2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div10, t15);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div10, button3);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(button3, t16);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(button3, i1);
 
       if (!mounted) {
-        dispose = [(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button0, "click",
+        dispose = [(0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(input0, "input",
+        /*input0_input_handler*/
+        ctx[6]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(input1, "input",
+        /*input1_input_handler*/
+        ctx[7]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(button0, "click",
         /*click_handler*/
-        ctx[2]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button1, "click",
+        ctx[8]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(button1, "click",
         /*click_handler_1*/
-        ctx[3]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button2, "click",
+        ctx[9]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(button2, "click",
         /*click_handler_2*/
-        ctx[4]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button3, "click",
+        ctx[10]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(button3, "click",
         /*click_handler_3*/
-        ctx[5])];
+        ctx[11])];
         mounted = true;
       }
     },
-    p: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
-    i: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
-    o: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
+    p: function p(ctx, _ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          dirty = _ref2[0];
+
+      if (dirty &
+      /*user*/
+      4 && input0.value !==
+      /*user*/
+      ctx[2].name) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input0,
+        /*user*/
+        ctx[2].name);
+      }
+
+      if (dirty &
+      /*user*/
+      4 && input1.value !==
+      /*user*/
+      ctx[2].password) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input1,
+        /*user*/
+        ctx[2].password);
+      }
+
+      if (dirty &
+      /*test_connection*/
+      1 && button1_class_value !== (button1_class_value = "btn btn-secondary " + (!
+      /*test_connection*/
+      ctx[0] ? "disabled" : ""))) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button1, "class", button1_class_value);
+      }
+
+      if (dirty &
+      /*user_created*/
+      2 && button3_class_value !== (button3_class_value = "btn btn-primary " + (!
+      /*user_created*/
+      ctx[1] ? "disabled" : ""))) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button3, "class", button3_class_value);
+      }
+    },
+    i: svelte_internal__WEBPACK_IMPORTED_MODULE_1__.noop,
+    o: svelte_internal__WEBPACK_IMPORTED_MODULE_1__.noop,
     d: function d(detaching) {
-      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div25);
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.detach)(div12);
       mounted = false;
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.run_all)(dispose);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.run_all)(dispose);
     }
   };
 }
 
-var test_connection = false;
-var tables_created = false;
-
 function instance($$self, $$props, $$invalidate) {
   var $slide;
-  (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, _stores__WEBPACK_IMPORTED_MODULE_1__.slide, function ($$value) {
-    return $$invalidate(0, $slide = $$value);
+  (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.component_subscribe)($$self, _stores__WEBPACK_IMPORTED_MODULE_2__.slide, function ($$value) {
+    return $$invalidate(3, $slide = $$value);
   });
+  var test_connection = false;
+  var user_created = false;
+  var user = {
+    name: "",
+    password: ""
+  };
 
   function testConnection() {
-    if (test_connection) sweetalert__WEBPACK_IMPORTED_MODULE_2___default()("Good job!", "The database exists", "success");else sweetalert__WEBPACK_IMPORTED_MODULE_2___default()("Oups!", "The database does not exist", "error");
+    return _testConnection.apply(this, arguments);
+  }
+
+  function _testConnection() {
+    _testConnection = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      var url, response, data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              url = "/api/setup/database/test";
+              _context.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_3___default().post(url);
+
+            case 3:
+              response = _context.sent;
+              _context.next = 6;
+              return response.data;
+
+            case 6:
+              data = _context.sent;
+
+              if (data) {
+                sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Good", "The database is set", "success");
+                $$invalidate(0, test_connection = true);
+              }
+
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+    return _testConnection.apply(this, arguments);
+  }
+
+  function createUser() {
+    return _createUser.apply(this, arguments);
+  }
+
+  function _createUser() {
+    _createUser = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var url, response, data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              if (!(!user.name || !user.password)) {
+                _context2.next = 2;
+                break;
+              }
+
+              return _context2.abrupt("return", sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Error", "Name and password most be defined", "error"));
+
+            case 2:
+              url = "/api/setup/database/create-user";
+              _context2.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_3___default().post(url, {
+                user: user
+              });
+
+            case 5:
+              response = _context2.sent;
+              _context2.next = 8;
+              return response.data;
+
+            case 8:
+              data = _context2.sent;
+              console.log(data);
+
+              if (data) {
+                $$invalidate(1, user_created = true);
+              }
+
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+    return _createUser.apply(this, arguments);
+  }
+
+  function input0_input_handler() {
+    user.name = this.value;
+    $$invalidate(2, user);
+  }
+
+  function input1_input_handler() {
+    user.password = this.value;
+    $$invalidate(2, user);
   }
 
   var click_handler = function click_handler() {
@@ -2462,18 +2673,18 @@ function instance($$self, $$props, $$invalidate) {
   };
 
   var click_handler_1 = function click_handler_1() {
-    return testConnection();
+    return createUser();
   };
 
   var click_handler_2 = function click_handler_2() {
-    return (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_store_value)(_stores__WEBPACK_IMPORTED_MODULE_1__.slide, $slide--, $slide);
+    return (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_store_value)(_stores__WEBPACK_IMPORTED_MODULE_2__.slide, $slide--, $slide);
   };
 
   var click_handler_3 = function click_handler_3() {
-    return (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_store_value)(_stores__WEBPACK_IMPORTED_MODULE_1__.slide, $slide++, $slide);
+    return (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_store_value)(_stores__WEBPACK_IMPORTED_MODULE_2__.slide, $slide++, $slide);
   };
 
-  return [$slide, testConnection, click_handler, click_handler_1, click_handler_2, click_handler_3];
+  return [test_connection, user_created, user, $slide, testConnection, createUser, input0_input_handler, input1_input_handler, click_handler, click_handler_1, click_handler_2, click_handler_3];
 }
 
 var Check_Database = /*#__PURE__*/function (_SvelteComponent) {
@@ -2487,12 +2698,12 @@ var Check_Database = /*#__PURE__*/function (_SvelteComponent) {
     _classCallCheck(this, Check_Database);
 
     _this = _super.call(this);
-    (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(_assertThisInitialized(_this), options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, {});
+    (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.init)(_assertThisInitialized(_this), options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_1__.safe_not_equal, {});
     return _this;
   }
 
   return Check_Database;
-}(svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent);
+}(svelte_internal__WEBPACK_IMPORTED_MODULE_1__.SvelteComponent);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Check_Database);
 
@@ -5531,7 +5742,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var svelte_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/store */ "./node_modules/svelte/store/index.mjs");
 
-var slide = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(0);
+var slide = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(2);
 
 /***/ }),
 
@@ -5547,6 +5758,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony import */ var _components_App_svelte__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/App.svelte */ "./resources/js/setup/components/App.svelte");
+
+
+window.onbeforeunload = function () {
+  return 'Are you sure you want to leave?';
+};
 
 var app = new _components_App_svelte__WEBPACK_IMPORTED_MODULE_0__.default({
   target: document.body,

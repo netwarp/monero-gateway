@@ -1,18 +1,48 @@
 <script>
 	import { slide } from '../_stores'
+	import axios from 'axios'
 
 	import swal from 'sweetalert'
 
 	let test_connection = false
+	let user_created = false
 
-	function testConnection() {
-		if (test_connection) 
-			swal('Good job!', 'The database exists', 'success')
-		else
-			swal('Oups!', 'The database does not exist', 'error')
+	let user = {
+		name: '',
+		password: ''
 	}
 
-	let tables_created = false
+	async function testConnection() {
+		const url = '/api/setup/database/test'
+
+		const response = await axios.post(url)
+		const data = await response.data
+
+		if (data) {
+			swal('Good', 'The database is set', 'success')
+			test_connection = true
+		}
+	}
+
+	async function createUser() {
+
+		if ( ! user.name || ! user.password ) {
+			return swal('Error', 'Name and password most be defined', 'error')
+		}
+
+		const url = '/api/setup/database/create-user'
+
+		const response = await axios.post(url, { user })
+		const data = await response.data
+
+		console.log(data)
+
+		if (data) {
+			user_created = true
+		}
+
+		
+	}
 </script>
 
 <div class="card">
@@ -20,45 +50,7 @@
 		Check database
 	</div>
 	<div class="card-body">
-
-		<div class="mb-3">
-			<code>
-			CREATE DATABASE "gateway" WITH OWNER "postgres" ENCODING 'UTF8' LC_COLLATE = 'en_US.UTF-8' LC_CTYPE = 'en_US.UTF-8';
-  			</code>
-		</div>
-
 		<form>
-			<fieldset>
-				<legend>Check database</legend>
-
-				<div class="form-group mb-3">
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<div class="input-group-text">Username</div>
-						</div>
-						<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
-					</div>
-				</div>
-
-				<div class="form-group mb-3">
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<div class="input-group-text">Password</div>
-						</div>
-						<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Password">
-					</div>
-				</div>
-
-				<div class="form-group mb-3">
-					<div class="input-group">
-						<div class="input-group-prepend">
-							<div class="input-group-text">Database</div>
-						</div>
-						<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Database">
-					</div>
-				</div>
-			</fieldset>
-
 			<fieldset>
 				<legend>Admin user</legend>
 
@@ -67,7 +59,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text">Name</div>
 						</div>
-						<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Name">
+						<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Name" bind:value="{user.name}">
 					</div>
 				</div>
 
@@ -76,7 +68,7 @@
 						<div class="input-group-prepend">
 							<div class="input-group-text">Password</div>
 						</div>
-						<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Password">
+						<input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Password" bind:value="{user.password}">
 					</div>
 				</div>
 
@@ -85,14 +77,13 @@
 
 			<div class="form-group mb-3">
 				<button class="btn btn-secondary" type="button" on:click={ () => testConnection() }>Test database</button>
-
-				<button class="btn btn-secondary { ! test_connection ? 'disabled' : ''}" type="button" on:click={ () => testConnection() }>Create tables</button>
+				<button class="btn btn-secondary { ! test_connection ? 'disabled' : '' }" type="button" on:click={ () => createUser() }>Create uer</button>
 			</div>
 		</form>
 
 		<div class="d-flex justify-content-between mt-3">
 			<button class="btn btn-primary" on:click={ () => $slide-- }><i class="bi bi-arrow-left-short"></i> Previous</button>
-			<button class="btn btn-primary { ! tables_created ? 'disabled' : ''}" on:click={ () => $slide++ }>Next <i class="bi bi-arrow-right-short"></i></button>
+			<button class="btn btn-primary { ! user_created ? 'disabled' : ''}" on:click={ () => $slide++ }>Next <i class="bi bi-arrow-right-short"></i></button>
 		</div>
 	</div>
 </div>

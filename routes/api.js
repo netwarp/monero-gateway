@@ -1,27 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-var exec = require('child_process').exec;
+const SetupController = require('../controllers/API/SetupController')
 
-router.post('/setup', async (req, res) => {
 
-	const software = req.body.software
+router.post('/setup/database/test', SetupController.databaseTest)
 
-	var child = exec(`which ${software}`);
-	child.stdout.on('data', function(data) {
-	    console.log('stdout: ' + data);
-	});
-	child.stderr.on('data', function(data) {
-	    console.log('stderr: ' + data);
-	});
-	child.on('close', function(code) {
-	    console.log('closing code: ' + code);
+router.post('/setup/database/create-user', SetupController.databaseCreateUser)
 
-	    if (code) 
-	    	return res.json(false)
-	    else
-	    	return res.json(true)
-	});
-})
 
 module.exports = router
