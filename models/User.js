@@ -7,4 +7,6 @@ const schema = new Schema({
  
 })
 
-module.exports = schema
+const User = mongoose.model('User', schema)
+
+module.exports = User

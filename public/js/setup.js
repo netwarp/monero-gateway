@@ -2642,13 +2642,13 @@ function instance($$self, $$props, $$invalidate) {
 
             case 8:
               data = _context2.sent;
-              console.log(data);
 
               if (data) {
+                sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Good", "The admin is created", "success");
                 $$invalidate(1, user_created = true);
               }
 
-            case 11:
+            case 10:
             case "end":
               return _context2.stop();
           }

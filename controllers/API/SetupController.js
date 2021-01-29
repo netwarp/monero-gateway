@@ -11,7 +11,7 @@ exports.databaseTest = async (request, response) => {
 
 exports.databaseCreateUser = async (request, response) => {
 
-	const user = request.body.user
+	let user = request.body.user
 
 	const name = user.name
 	let password = user.password

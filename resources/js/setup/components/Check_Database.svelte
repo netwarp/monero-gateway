@@ -35,13 +35,10 @@
 		const response = await axios.post(url, { user })
 		const data = await response.data
 
-		console.log(data)
-
 		if (data) {
+			swal('Good', 'The admin is created', 'success')
 			user_created = true
 		}
-
-		
 	}
 </script>
 
