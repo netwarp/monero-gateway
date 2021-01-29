@@ -1,0 +1,45 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+body {
+	background: #efef;
+	color: #71748d;
+}
+
+#sidebar {
+	background: #0e0c28;
+	min-height: 100vh;
+
+	nav {
+
+		ul {
+			padding: 0;
+
+			li {
+				list-style-type: none;
+				padding: 0.6rem;
+				cursor: pointer;
+
+				&.active {
+					background: #242849;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+header {
+	background: #fff;
+	display: flex;
+	flex-direction: row-reverse;
+	padding: 1rem;
+	font-size: 1.2rem;
+	border-bottom: 1px solid rgba(#000, 0.1);
+
+	    box-shadow: 0 0 0.2rem rgba(0,0,0,.1), 0 0.2rem 0.4rem rgba(0,0,0,.2);
+
+	.nav_item {
+		margin: 0 1rem;
+
+	}
+}
