@@ -3,13 +3,12 @@ const router = express.Router()
 
 const SetupController = require('../controllers/API/SetupController')
 
-const DaemonController = require('../controllers/API/DaemonController')
+const RPC_Controller = require('../controllers/API/RPC_Controller')
+
 
 router.post('/setup/database/test', SetupController.databaseTest)
-
 router.post('/setup/database/create-user', SetupController.databaseCreateUser)
 
-
-router.post('/daemon', DaemonController.fetch)
+router.post('/rpc', RPC_Controller.fetch)
 
 module.exports = router

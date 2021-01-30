@@ -3,6 +3,7 @@
 
 	import Home from './Home'
 	import Network from './Network'
+	import Transactions from './Transactions'
 </script>
 
 <div class="container-fluid">
@@ -12,9 +13,10 @@
 				<ul>
 					<li class="{ $view === 'home' ? 'active' : '' }" on:click={ () => $view = 'home' }><i class="bi bi-house-door"></i> Home</li>
 					<li class="{ $view === 'network' ? 'active' : '' }" on:click={ () => $view = 'network' }><i class="bi bi-hdd-network"></i> Network</li>
-					<li class="{ $view === 'transactions' ? 'active' : '' }" on:click={ () => $view = 'transactions' }><i class="bi bi-wallet2"></i> Transactions</li>
-					<ul>
-						<li>Incoming</li>
+					<li class="{ $view === 'transactions' ? 'active' : '' }" on:click={ () => $view = 'transactions' }><i class="bi bi-wallet2"></i> Transactions <small>(in wallet)</small> </li>
+					<li class="{ $view === 'payments' ? 'active' : '' }" on:click={ () => $view = 'payments' }><i class="bi bi-credit-card"></i> Payments <small>( in database)</small></li>
+					<ul class="mx-4">
+						<li class="{ $view === 'incoming' ? 'active' : '' }" on:click={ () => $view = 'incoming' }><i class="bi bi-arrow-repeat"></i> Incoming</li>
 					</ul>
 				</ul>
 			</nav>
@@ -36,6 +38,8 @@
 			 		<Home />
 			 	{:else if $view === 'network'}
 			 		<Network />
+			 	{:else if $view === 'transactions'}
+			 		<Transactions />
 				{/if}
 			 </main>
 		</div>

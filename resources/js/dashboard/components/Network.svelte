@@ -6,10 +6,10 @@
 
 	let info = {
 		height: null,
+		height_without_bootstrap: null,
 		nettype: null,
 	 	status: null,
 	 	synchronized: null,
-		
 		busy_syncing: null,
 		version: null,
 		update_available: null,
@@ -19,14 +19,23 @@
 
 	async function getInfo() {
 		try {
-			const url = '/api/daemon'
+			const url = '/api/rpc'
 
-			const reponse = await axios.post(url, {
+			const url_rpc = 'http://localhost:38081/json_rpc'
+
+			const object_rpc = {
 				"jsonrpc": "2.0",
 				"id":"0", 
 				"method":"get_info",
 				"params": {}
-			})
+			}
+
+			const object_complete = {
+				url_rpc,
+				object_rpc
+			}
+
+			const reponse = await axios.post(url, object_complete)
 
 			const data = await reponse.data
 			const result = data.result
@@ -42,7 +51,9 @@
 		}
 	}
 
-	getInfo()
+	getInfo().then( () => percent_sync = info.height_without_bootstrap * 100 / info.height )
+
+	let percent_sync
 </script>
 
 <div class="row mt-3">
@@ -70,10 +81,10 @@
 				Daemon
 			</div>
 			<div class="card-body">
-				<span class="">22332323 / {info.height}</span> |
-				<span>30%</span> 
+				<span class="">{info.height_without_bootstrap} / {info.height}</span> |
+				<span>  { percent_sync } %</span> 
 				<div class="progress">
-					<div class="progress-bar" role="progressbar" style="width: 28%;" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
+					<div class="progress-bar { info.synchronized ? 'bg-success' : 'progress-bar-striped progress-bar-animated' }" role="progressbar" style="width: { percent_sync }%;" aria-valuenow="{ percent_sync }" aria-valuemin="0" aria-valuemax="100"></div>
 				</div>
 			</div>
 		</div>
