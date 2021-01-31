@@ -4,7 +4,7 @@ exports.index = async (request, response) => {
 
 	const id = request.query.id 
 	
-	const payment = Payment.findById(id)
+	const payment = await Payment.findById(id)
 
 	await response.render('gateway.html', {
 		payment
