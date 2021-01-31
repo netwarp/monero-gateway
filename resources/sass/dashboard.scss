@@ -16,10 +16,14 @@ body {
 
 			li {
 				list-style-type: none;
-				padding: 0.6rem;
 				cursor: pointer;
 
-				&.active {
+				span {
+					display: block;
+					padding: 0.6rem;
+				}
+
+				&.active > span {
 					background: #242849;
 					color: #fff;
 				}

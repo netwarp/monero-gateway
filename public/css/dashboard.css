@@ -10241,11 +10241,15 @@ body {
 
 #sidebar nav ul li {
   list-style-type: none;
-  padding: 0.6rem;
   cursor: pointer;
 }
 
-#sidebar nav ul li.active {
+#sidebar nav ul li span {
+  display: block;
+  padding: 0.6rem;
+}
+
+#sidebar nav ul li.active > span {
   background: #242849;
   color: #fff;
 }

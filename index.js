@@ -6,6 +6,7 @@ const  nunjucks = require('nunjucks')
 const bodyParser = require('body-parser')
 const redis = require('redis')
 
+
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/gateway', {useNewUrlParser: true, useUnifiedTopology: true});
 

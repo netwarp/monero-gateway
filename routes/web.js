@@ -1,15 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-
 require('dotenv').config()
 
+const GatewayController = require('../controllers/GatewayController')
 
-router.get('/', async (req, res) => {
-	await res.render('gateway.html', {
-		name: 'world'
-	})
-})
+router.get('/', GatewayController.index)
 
 router.get('/setup', (req, res) => {
 	res.render('setup.html')
