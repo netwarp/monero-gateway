@@ -12,7 +12,7 @@
 		payments = data
 	})
 
-	let amount = 132323232332323
+	let amount = 1.2
 	async function createPayment() {
 		const response = await axios.post('/api/payments', { amount })
 		const data = await response.data
@@ -24,7 +24,7 @@
 
 	const colors = {
 		initialised: 'secondary',
-		pending: 'warning',
+		pending: 'primary',
 		completed: 'success',
 		cancelled: 'danger'
 	}
@@ -34,6 +34,23 @@
 
 	import ioClient from 'socket.io-client'
 
+	let io = ioClient('/dashboard', {
+		query: {
+			page: 'dashboard'
+		}
+	})
+
+	function setPaymentStatus(id, status) {
+
+		payments.find(element => element._id === id).status = status
+
+
+		payments = payments
+	}
+	
+	io.on('update_payment', (id, status) => {
+		setPaymentStatus(id, status)
+	})
 	
 </script> 
 
@@ -68,8 +85,8 @@
 								<td><i class="bi bi-circle-fill text-{ colors[payment.status] }"></i> { payment.status }</td>
 								<td>{ payment.amount }</td>
 								<td>{ Helpers.formatLargeString(payment.payment_id) }</td>
-								<td>{ payment.created_at }</td>
-								<td>{ payment.updated_at }</td>
+								<td>{ Helpers.formatTime(payment.created_at) }</td>
+								<td>{ Helpers.formatTime(payment.updated_at) }</td>
 							</tr>
 						{/each}
 					</tbody>

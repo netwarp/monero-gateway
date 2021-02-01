@@ -38,8 +38,9 @@
 
 
 	// socket io
-	let io = ioClient(`/`, {
+	let io = ioClient(`/gateway`, {
 		query: {
+			page: 'gateway',
 			payment_id: payment._id
 		}
 	})

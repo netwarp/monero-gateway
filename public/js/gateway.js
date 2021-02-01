@@ -226,7 +226,7 @@ function create_if_block_1(ctx) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div);
     }
   };
-} // (106:1) {#if payment.payed}
+} // (107:1) {#if payment.payed}
 
 
 function create_if_block(ctx) {
@@ -437,8 +437,9 @@ function instance($$self, $$props, $$invalidate) {
 
   var window_width = window.innerWidth; // socket io
 
-  var io = (0,socket_io_client__WEBPACK_IMPORTED_MODULE_2__.default)("/", {
+  var io = (0,socket_io_client__WEBPACK_IMPORTED_MODULE_2__.default)("/gateway", {
     query: {
+      page: "gateway",
       payment_id: payment._id
     }
   });
