@@ -30,6 +30,11 @@
 	}
 
 	import { Helpers } from '../_stores'
+
+
+	import ioClient from 'socket.io-client'
+
+	
 </script> 
 
 <div class="row mt-3">
@@ -71,5 +76,11 @@
 				</table>
 			</div>
 		</div>
+	</div>
+</div>
+
+<div class="row mt-3">
+	<div class="col-md">
+		Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, recusandae. Voluptatem id nisi, dolore, nam temporibus suscipit aliquid ipsum repellat neque tempora consequatur soluta quae asperiores mollitia sapiente quam recusandae.s
 	</div>
 </div>

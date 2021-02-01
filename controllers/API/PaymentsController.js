@@ -50,7 +50,7 @@ exports.store = async (request,response) => {
 	result = await data.result
 
 	let uri = result.uri
-	console.log(result)
+//	console.log(result)
 
 	const doc = {
 		amount,

@@ -17,6 +17,6 @@
 
 	<body>
 		
-		<script>let payment = {{ payment | dump | safe }}</script>
+		<script>window.payment = {{ payment | dump | safe }}</script>
 	</body>
 </html>

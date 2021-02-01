@@ -1,30 +1,18 @@
 <script>
+	import { onMount } from 'svelte'
+	
 	import ioClient from 'socket.io-client'
-	import swal from 'sweetalert'
 	import QrCode from 'svelte-qrcode'
 	import ClipBoard from 'clipboard'
+	import swal from 'sweetalert'
 
-	/**
-	 * Get some data about payment
-	 *
-	 *
-	 */
-	let payment = {
-		txid: new URL(window.location).searchParams.get('txid'),
-		amount: 0.03,
-		payed: false
-	}
+	let payment = window.payment
 
-	/**
-	 * Set qrcode size
-	 *
-	 */
-	const window_width = window.innerWidth
+	
 
 	// play with clipboard
-	var clipboard = new ClipBoard('.btn');
-
 	let is_copy = false
+	const clipboard = new ClipBoard('.btn')
 
 	clipboard.on('success', function(e) {
 	    console.info('Action:', e.action);
@@ -36,32 +24,52 @@
 	    setTimeout( () => is_copy = false, 3000 )
 
 	    e.clearSelection();
-	});
+	})
 
 	clipboard.on('error', function(e) {
 	    console.error('Action:', e.action);
 	    console.error('Trigger:', e.trigger);
-	});
+	})
 
+
+
+	// play with qrcode
+	const window_width = window.innerWidth
 
 
 	// socket io
-	let io = ioClient()
-
-	io.on('tx_done', (tx) => {
-		swal('Good job!', 'You clicked the button!', 'success')
+	let io = ioClient(`/`, {
+		query: {
+			payment_id: payment._id
+		}
 	})
+
+	io.on('message', (message) => {
+		alert(message)
+	})
+
+	io.on('pop', (message) => {
+		alert(message)
+	})
+
+	function testSocket() {
+		io.emit('test')
+	}
 </script>
 
 <div class="gateway-container">
+
+	<button on:click={testSocket}>test specific socket</button>
+
 	<div class="gateway-header">
 		<div class="title">
-			Order: #23232
+			Order: { payment._id }
 		</div>
 		<div>
-			{payment.txid}
+			{ payment.payment_id }
 		</div>
 	</div>
+
 	<div class="gateway-body">
 		
 		<div class="alert success hide">
@@ -69,15 +77,12 @@
 		</div>
 
 		<div class="qrcode-container">
-			<QrCode value="{payment.txid}" padding="10" size="400" />
-		</div>		
-		 
-		
+			<QrCode value="{payment.uri}" padding="10" size="400" />
+		</div>
+
 		<div class="amount">
 			
 		</div>
-
-
 
 		<input id="address" value="{payment.txid}" hidden>
 
@@ -92,8 +97,8 @@
 			data-clipboard-action="cut" data-clipboard-target="#address">
 				{payment.txid}
 		</button>
-	
 	</div>
+
 	<div class="gateway-footer">
 		yourwebsite.com
 	</div>
@@ -103,5 +108,4 @@
 			<a href="back to site">Back to site</a>
 		</div>
 	{/if}
-
 </div>

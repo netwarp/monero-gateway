@@ -46,9 +46,10 @@ app.use('/', web_router)
 app.use('/api', api_router)
 
 
-io.on('connection', (socket) => {
-	console.log('a user connected')
-})
+// sockets
+require('./sockets/index')(io)
+
+
 
 http.listen(PORT, () => {
 	console.log('listening on *:' + PORT)
