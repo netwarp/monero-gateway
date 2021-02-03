@@ -50,7 +50,8 @@
 	})
 
 	io.on('pop', (message) => {
-		alert(message)
+		alert('pop')
+		swal('Payment received', 'thanks you', 'success')
 	})
 
 	function testSocket() {
