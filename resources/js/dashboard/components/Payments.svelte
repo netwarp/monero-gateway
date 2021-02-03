@@ -12,11 +12,15 @@
 		payments = data
 	})
 
-	let amount = 1.2
+	let amount = 12
+	let tx_description = 'a  short tx'
 	async function createPayment() {
-		const response = await axios.post('/api/payments', { amount })
+
+		const response = await axios.post('/api/payments', { amount, tx_description })
 		const data = await response.data
-		
+
+		console.log(data)
+
 		payments.unshift(data)
 
 		payments = payments
@@ -44,7 +48,6 @@
 
 		payments.find(element => element._id === id).status = status
 
-
 		payments = payments
 	}
 	
@@ -61,6 +64,7 @@
 		<div>
 			<form on:submit|preventDefault={ createPayment }>
 				<input type="text" placeholder="amount" bind:value={amount} >
+				<input type="text" placeholder="tx_description" bind:value={tx_description} >
 				<button type="submit">Send</button>
 			</form>
 		</div>
@@ -73,7 +77,7 @@
 							<th>ID <small>(in database)</small></th>
 							<th>Status</th>
 							<th>Amount</th>
-							<th>Txid <small>(in wallet)</small></th> 
+							<th>Payment_id <small>(in wallet)</small></th> 
 							<th>Created at</th>
 							<th>Updated at</th>
 						</tr>
