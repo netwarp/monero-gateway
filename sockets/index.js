@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 const Payment = require('../models/Payment')
 
 let map_socket_payment = new Map()
@@ -13,6 +15,10 @@ module.exports = async (io) => {
 		const payment_id = socket.handshake.query.payment_id
 
 		const payment = await Payment.findById(payment_id)
+
+		if (! payment) {
+			return
+		}
 		
 		switch (payment.status) {
 			case 'initialised':
@@ -43,11 +49,30 @@ module.exports = async (io) => {
 		map_socket_payment.set(socket.id, payment_id)
 		console.log(map_socket_payment)
 
-		socket.on('test', () => {
-			io.to(socket.id).emit('pop', socket.id)
-		})
+		socket.on('tx_done', async (txid) => {
+			let res
+			let data
+			let result
 
-		//socket.emit('update')
+			res = await axios.post('http://localhost:18089/json_rpc', {
+				"jsonrpc":"2.0", 
+				"id":"0", 
+				"method":"make_uri",
+				"params": {
+					txid
+				}
+			})
+
+			data = await res.data
+			result = await data.result
+
+			const payment_id = result.transfer.payment_id
+			const status = 'completed'
+
+			const payment = await Payment.findOneAndUpdate({ payment_id }, {status})
+
+			socket.emit('pop')
+		})
 
 		socket.on('disconnect', async () => {
 			map_socket_payment.delete(socket.id)
