@@ -2,7 +2,7 @@ const express = require('express')
 const app = require('express')()
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
-const  nunjucks = require('nunjucks')
+const nunjucks = require('nunjucks')
 const bodyParser = require('body-parser')
 const redis = require('redis')
 
@@ -24,17 +24,22 @@ nunjucks.configure('views', {
 	autoescape:  true,
 	express:  app,
 	watch: true,
-})
+}) 
 
 const subscriber = redis.createClient()
-const publisher = redis.createClient()
+//const publisher = redis.createClient()
 
-subscriber.on("message",(channel, message) => {
-    
-	io.sockets.emit('tx_done', message)
+subscriber.on('message',(channel, message) => {
+	
+    console.log('new payment here')
+
+    console.log(channel, message)
+
+	io.of('/gateway').emit('tx_done', message)
 })
 
-subscriber.subscribe("tx")
+subscriber.subscribe('tx')
+
 
 app.use(bodyParser.json())
 app.use(express.static('public'))
