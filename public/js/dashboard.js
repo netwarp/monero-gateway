@@ -2951,9 +2951,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function get_each_context(ctx, list, i) {
   var child_ctx = ctx.slice();
-  child_ctx[7] = list[i];
+  child_ctx[9] = list[i];
   return child_ctx;
-} // (82:6) {#each payments as payment }
+} // (86:6) {#each payments as payment }
 
 
 function create_each_block(ctx) {
@@ -2961,7 +2961,7 @@ function create_each_block(ctx) {
   var td0;
   var t0_value =
   /*payment*/
-  ctx[7]._id + "";
+  ctx[9]._id + "";
   var t0;
   var t1;
   var td1;
@@ -2970,31 +2970,31 @@ function create_each_block(ctx) {
   var t2;
   var t3_value =
   /*payment*/
-  ctx[7].status + "";
+  ctx[9].status + "";
   var t3;
   var t4;
   var td2;
   var t5_value =
   /*payment*/
-  ctx[7].amount + "";
+  ctx[9].amount + "";
   var t5;
   var t6;
   var td3;
   var t7_value = _stores__WEBPACK_IMPORTED_MODULE_4__.Helpers.formatLargeString(
   /*payment*/
-  ctx[7].payment_id) + "";
+  ctx[9].payment_id) + "";
   var t7;
   var t8;
   var td4;
   var t9_value = _stores__WEBPACK_IMPORTED_MODULE_4__.Helpers.formatTime(
   /*payment*/
-  ctx[7].created_at) + "";
+  ctx[9].created_at) + "";
   var t9;
   var t10;
   var td5;
   var t11_value = _stores__WEBPACK_IMPORTED_MODULE_4__.Helpers.formatTime(
   /*payment*/
-  ctx[7].updated_at) + "";
+  ctx[9].updated_at) + "";
   var t11;
   var t12;
   return {
@@ -3022,9 +3022,9 @@ function create_each_block(ctx) {
       t12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(i, "class", i_class_value = "bi bi-circle-fill text-" +
       /*colors*/
-      ctx[3][
+      ctx[4][
       /*payment*/
-      ctx[7].status]);
+      ctx[9].status]);
     },
     m: function m(target, anchor) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.insert)(target, tr, anchor);
@@ -3054,15 +3054,15 @@ function create_each_block(ctx) {
       /*payments*/
       1 && t0_value !== (t0_value =
       /*payment*/
-      ctx[7]._id + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t0, t0_value);
+      ctx[9]._id + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t0, t0_value);
 
       if (dirty &
       /*payments*/
       1 && i_class_value !== (i_class_value = "bi bi-circle-fill text-" +
       /*colors*/
-      ctx[3][
+      ctx[4][
       /*payment*/
-      ctx[7].status])) {
+      ctx[9].status])) {
         (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(i, "class", i_class_value);
       }
 
@@ -3070,27 +3070,27 @@ function create_each_block(ctx) {
       /*payments*/
       1 && t3_value !== (t3_value =
       /*payment*/
-      ctx[7].status + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t3, t3_value);
+      ctx[9].status + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t3, t3_value);
       if (dirty &
       /*payments*/
       1 && t5_value !== (t5_value =
       /*payment*/
-      ctx[7].amount + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t5, t5_value);
+      ctx[9].amount + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t5, t5_value);
       if (dirty &
       /*payments*/
       1 && t7_value !== (t7_value = _stores__WEBPACK_IMPORTED_MODULE_4__.Helpers.formatLargeString(
       /*payment*/
-      ctx[7].payment_id) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t7, t7_value);
+      ctx[9].payment_id) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t7, t7_value);
       if (dirty &
       /*payments*/
       1 && t9_value !== (t9_value = _stores__WEBPACK_IMPORTED_MODULE_4__.Helpers.formatTime(
       /*payment*/
-      ctx[7].created_at) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t9, t9_value);
+      ctx[9].created_at) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t9, t9_value);
       if (dirty &
       /*payments*/
       1 && t11_value !== (t11_value = _stores__WEBPACK_IMPORTED_MODULE_4__.Helpers.formatTime(
       /*payment*/
-      ctx[7].updated_at) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t11, t11_value);
+      ctx[9].updated_at) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_data)(t11, t11_value);
     },
     d: function d(detaching) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.detach)(tr);
@@ -3105,17 +3105,19 @@ function create_fragment(ctx) {
   var div3;
   var div0;
   var form;
-  var input;
+  var input0;
   var t2;
+  var input1;
+  var t3;
   var button;
-  var t4;
+  var t5;
   var div2;
   var div1;
   var table;
   var thead;
-  var t18;
-  var tbody;
   var t19;
+  var tbody;
+  var t20;
   var div6;
   var mounted;
   var dispose;
@@ -3137,28 +3139,32 @@ function create_fragment(ctx) {
       div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
       div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
       form = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("form");
-      input = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("input");
+      input0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("input");
       t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      input1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("input");
+      t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
       button = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("button");
       button.textContent = "Send";
-      t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
       div2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
       div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
       table = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("table");
       thead = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("thead");
-      thead.innerHTML = "<tr><th>ID <small>(in database)</small></th> \n\t\t\t\t\t\t\t<th>Status</th> \n\t\t\t\t\t\t\t<th>Amount</th> \n\t\t\t\t\t\t\t<th>Txid <small>(in wallet)</small></th>  \n\t\t\t\t\t\t\t<th>Created at</th> \n\t\t\t\t\t\t\t<th>Updated at</th></tr>";
-      t18 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      thead.innerHTML = "<tr><th>ID <small>(in database)</small></th> \n\t\t\t\t\t\t\t<th>Status</th> \n\t\t\t\t\t\t\t<th>Amount</th> \n\t\t\t\t\t\t\t<th>Payment_id <small>(in wallet)</small></th>  \n\t\t\t\t\t\t\t<th>Created at</th> \n\t\t\t\t\t\t\t<th>Updated at</th></tr>";
+      t19 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
       tbody = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("tbody");
 
       for (var _i = 0; _i < each_blocks.length; _i += 1) {
         each_blocks[_i].c();
       }
 
-      t19 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
+      t20 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.space)();
       div6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.element)("div");
       div6.innerHTML = "<div class=\"col-md\">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, recusandae. Voluptatem id nisi, dolore, nam temporibus suscipit aliquid ipsum repellat neque tempora consequatur soluta quae asperiores mollitia sapiente quam recusandae.s</div>";
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input, "type", "text");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input, "placeholder", "amount");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input0, "type", "text");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input0, "placeholder", "amount");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input1, "type", "text");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(input1, "placeholder", "tx_description");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(button, "type", "submit");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(table, "class", "table");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.attr)(div1, "class", "card-body");
@@ -3174,33 +3180,40 @@ function create_fragment(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div4, div3);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div3, div0);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div0, form);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, input);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input,
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, input0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input0,
       /*amount*/
       ctx[1]);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, t2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, input1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input1,
+      /*tx_description*/
+      ctx[2]);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, t3);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(form, button);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div3, t4);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div3, t5);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div3, div2);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div2, div1);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(div1, table);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(table, thead);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(table, t18);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(table, t19);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.append)(table, tbody);
 
       for (var _i2 = 0; _i2 < each_blocks.length; _i2 += 1) {
         each_blocks[_i2].m(tbody, null);
       }
 
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.insert)(target, t19, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.insert)(target, t20, anchor);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.insert)(target, div6, anchor);
 
       if (!mounted) {
-        dispose = [(0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(input, "input",
-        /*input_input_handler*/
-        ctx[4]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(form, "submit", (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.prevent_default)(
+        dispose = [(0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(input0, "input",
+        /*input0_input_handler*/
+        ctx[5]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(input1, "input",
+        /*input1_input_handler*/
+        ctx[6]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.listen)(form, "submit", (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.prevent_default)(
         /*createPayment*/
-        ctx[2]))];
+        ctx[3]))];
         mounted = true;
       }
     },
@@ -3210,17 +3223,27 @@ function create_fragment(ctx) {
 
       if (dirty &
       /*amount*/
-      2 && input.value !==
+      2 && input0.value !==
       /*amount*/
       ctx[1]) {
-        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input,
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input0,
         /*amount*/
         ctx[1]);
       }
 
       if (dirty &
+      /*tx_description*/
+      4 && input1.value !==
+      /*tx_description*/
+      ctx[2]) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.set_input_value)(input1,
+        /*tx_description*/
+        ctx[2]);
+      }
+
+      if (dirty &
       /*Helpers, payments, colors*/
-      9) {
+      17) {
         each_value =
         /*payments*/
         ctx[0];
@@ -3253,7 +3276,7 @@ function create_fragment(ctx) {
     d: function d(detaching) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.detach)(div4);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.destroy_each)(each_blocks, detaching);
-      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.detach)(t19);
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.detach)(t20);
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.detach)(div6);
       mounted = false;
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_1__.run_all)(dispose);
@@ -3289,7 +3312,8 @@ function instance($$self, $$props, $$invalidate) {
       }
     }, _callee);
   })));
-  var amount = 1.2;
+  var amount = 12;
+  var tx_description = "a  short tx";
 
   function createPayment() {
     return _createPayment.apply(this, arguments);
@@ -3304,7 +3328,8 @@ function instance($$self, $$props, $$invalidate) {
             case 0:
               _context2.next = 2;
               return axios__WEBPACK_IMPORTED_MODULE_3___default().post("/api/payments", {
-                amount: amount
+                amount: amount,
+                tx_description: tx_description
               });
 
             case 2:
@@ -3314,10 +3339,11 @@ function instance($$self, $$props, $$invalidate) {
 
             case 5:
               data = _context2.sent;
+              console.log(data);
               payments.unshift(data);
               $$invalidate(0, payments);
 
-            case 8:
+            case 9:
             case "end":
               return _context2.stop();
           }
@@ -3350,12 +3376,17 @@ function instance($$self, $$props, $$invalidate) {
     setPaymentStatus(id, status);
   });
 
-  function input_input_handler() {
+  function input0_input_handler() {
     amount = this.value;
     $$invalidate(1, amount);
   }
 
-  return [payments, amount, createPayment, colors, input_input_handler];
+  function input1_input_handler() {
+    tx_description = this.value;
+    $$invalidate(2, tx_description);
+  }
+
+  return [payments, amount, tx_description, createPayment, colors, input0_input_handler, input1_input_handler];
 }
 
 var Payments = /*#__PURE__*/function (_SvelteComponent) {

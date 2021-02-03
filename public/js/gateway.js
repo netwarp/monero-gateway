@@ -226,7 +226,7 @@ function create_if_block_1(ctx) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div);
     }
   };
-} // (107:1) {#if payment.payed}
+} // (108:1) {#if payment.payed}
 
 
 function create_if_block(ctx) {
@@ -447,7 +447,8 @@ function instance($$self, $$props, $$invalidate) {
     alert(message);
   });
   io.on("pop", function (message) {
-    alert(message);
+    alert("pop");
+    sweetalert__WEBPACK_IMPORTED_MODULE_5___default()("Payment received", "thanks you", "success");
   });
 
   function testSocket() {
