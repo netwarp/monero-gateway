@@ -14,53 +14,53 @@ exports.store = async (request,response) => {
 	let res 
 	let data
 	let result
-	let address
 
-	// integrated_address
 	res = await axios.post('http://localhost:18089/json_rpc', {
 		"jsonrpc":"2.0", 
 		"id":"0", 
-		"method":"get_address" 
+		"method":"make_integrated_address" 
 	})
-	data = await res.data
-	result = await data.result
 
-	address = result.address
+	data = res.data
+	result = data.result
 
-	const payment_id = crypto.randomBytes(32).toString('hex')
-	console.log(payment_id)
+	const integrated_address = result.integrated_address
+	const payment_id = result.payment_id
 
-	// make_uri
-	const amount = await request.body.amount
-	 
-	const tx_description = request.body.tx_description ?? 'a description'
+
+	const amount = request.body.amount
+	const tx_description = request.body.tx_description ?? ''
+
+	console.log(amount)
+
 	res = await axios.post('http://localhost:18089/json_rpc', {
 		"jsonrpc":"2.0", 
 		"id":"0", 
 		"method":"make_uri",
 		"params": {
-			address: address,
-			amount: amount * 1000000000000, // atomic unit,
-			payment_id,
+			"address": integrated_address,
+			amount,
+			//"payment_id": payment_id,
 			tx_description
 		}
 	})
-	
+
 	data = await res.data
 	result = await data.result
 
-	let uri = result.uri
-//	console.log(result)
-
+	const uri = await result.uri
+	
 	const doc = {
 		amount,
-		address,
+		address: integrated_address,
 		payment_id,
+		tx_description,
 		uri
 	}
+
 	const payment = await Payment.create(doc)
 
-	await response.json(payment)
+	await response.json(payment) 
 }
 
 exports.show = async (request,response) => {
