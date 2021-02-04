@@ -55,6 +55,7 @@ module.exports = async (io) => {
 		
 
 		socket.on('disconnect', async () => {
+			
 			map_socket_payment.delete(socket.id)
 
 			switch (payment.status) {
@@ -71,6 +72,9 @@ module.exports = async (io) => {
 
 					break
 				case 'completed':
+
+					await payment.update({ status: 'completed' })
+					dashboard_namespace.emit('update_payment', payment_id, 'completed')
 
 					break
 				case 'cancelled':

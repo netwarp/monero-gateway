@@ -27,14 +27,24 @@
 
 	.gateway-body {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		justify-content: space-between;
 		padding: 1rem;
+
 		
+		.data {		
+			width: 60%;
+			word-wrap: break-word;
+
+			.kv {
+				margin-top: 1rem;
+
+				.key {
+					font-weight: bold;
+				}
+			}
+		}
 
 		.qrcode-container {
-			//width: 100%;
-			margin: 1rem auto;
 
 			img {
 				padding: 10px;
@@ -43,70 +53,5 @@
 				//max-width: 100%;
 			}
 		}
-
-		.data {		
-		//	width: 78%;
-		}
-
-		.amount {
-			padding: 0 1rem;
-			//font-size: 1.2rem;
-			margin-top: 1rem;
-
-			.key {
-				font-weight: bold;
-			}
-		}
-
-		.address {
-			padding: 0 1rem;
-			font-size: 0.9rem;
-			margin-top: 1rem;
-
-			cursor: pointer;
-			background: transparent;
-			border: 1px solid transparent;
-			//text-align: center;
-
-			.key {
-				font-weight: bold;
-			}
-		}
-
-		.uri {
-			padding: 0 1rem;
-			margin-top: 1rem;
-
-			.key {
-				font-weight: bold;
-			}
-		}
-	}
-
-	.gateway-footer {
-		background: #333;
-		color: #fff;
-		padding: 1rem;
-		border-top: 4px solid rgba(#000, 0.8);
-		font-size: .9rem;
-	}
-
-	.alert {
-		margin: 1rem 0;
-		padding: 1rem;
-
-		&.hide {
-			display: none;
-		}
-
-		&.success {
-			background: #27ae60;
-			color: #fff;
-		}
-
-		&.error {
-			background: #e74c3c;
-			color: #fff;
-		}
-	}
+	}	
 }

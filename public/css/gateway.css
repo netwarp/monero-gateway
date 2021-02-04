@@ -23,76 +23,26 @@
 
 .gateway-container .gateway-body {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1rem;
 }
 
-.gateway-container .gateway-body .qrcode-container {
-  margin: 1rem auto;
+.gateway-container .gateway-body .data {
+  width: 60%;
+  word-wrap: break-word;
+}
+
+.gateway-container .gateway-body .data .kv {
+  margin-top: 1rem;
+}
+
+.gateway-container .gateway-body .data .kv .key {
+  font-weight: bold;
 }
 
 .gateway-container .gateway-body .qrcode-container img {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   background: #fff;
-}
-
-.gateway-container .gateway-body .amount {
-  padding: 0 1rem;
-  margin-top: 1rem;
-}
-
-.gateway-container .gateway-body .amount .key {
-  font-weight: bold;
-}
-
-.gateway-container .gateway-body .address {
-  padding: 0 1rem;
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid transparent;
-}
-
-.gateway-container .gateway-body .address .key {
-  font-weight: bold;
-}
-
-.gateway-container .gateway-body .uri {
-  padding: 0 1rem;
-  margin-top: 1rem;
-}
-
-.gateway-container .gateway-body .uri .key {
-  font-weight: bold;
-}
-
-.gateway-container .gateway-footer {
-  background: #333;
-  color: #fff;
-  padding: 1rem;
-  border-top: 4px solid rgba(0, 0, 0, 0.8);
-  font-size: .9rem;
-}
-
-.gateway-container .alert {
-  margin: 1rem 0;
-  padding: 1rem;
-}
-
-.gateway-container .alert.hide {
-  display: none;
-}
-
-.gateway-container .alert.success {
-  background: #27ae60;
-  color: #fff;
-}
-
-.gateway-container .alert.error {
-  background: #e74c3c;
-  color: #fff;
 }
 
