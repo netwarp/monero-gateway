@@ -8,7 +8,11 @@ const redis = require('redis')
 
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/gateway', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/gateway', {
+	useNewUrlParser: true, 
+	useUnifiedTopology: true, 
+	useFindAndModify: false
+})
 
 
 const redis_client = redis.createClient()
@@ -28,6 +32,7 @@ nunjucks.configure('views', {
 
 const subscriber = redis.createClient()
 //const publisher = redis.createClient()
+const SubscriberHandler = require('./subscribe/index')
 
 subscriber.on('message',(channel, message) => {
 	
@@ -35,11 +40,13 @@ subscriber.on('message',(channel, message) => {
 
     console.log(channel, message)
 
-	io.of('/gateway').emit('tx_done', message)
+	SubscriberHandler.tx(message, io)
 })
 
-subscriber.subscribe('tx')
+// sockets
+require('./sockets/index')(io)
 
+subscriber.subscribe('tx')
 
 app.use(bodyParser.json())
 app.use(express.static('public'))
@@ -50,9 +57,6 @@ const api_router = require('./routes/api')
 app.use('/', web_router)
 app.use('/api', api_router)
 
-
-// sockets
-require('./sockets/index')(io)
 
 
 
