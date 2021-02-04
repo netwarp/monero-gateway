@@ -365,32 +365,47 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function create_default_slot_3(ctx) {
   var button;
+  var t0_value =
+  /*Converter*/
+  ctx[3].atomicUnitsToXmr(
+  /*payment*/
+  ctx[0].amount) + "";
+  var t0;
+  var t1;
   var mounted;
   var dispose;
   return {
     c: function c() {
       button = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
-      button.textContent = "".concat(
-      /*payment*/
-      ctx[0].amount, " XMR");
+      t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t0_value);
+      t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(" XMR");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "class", "value");
     },
     m: function m(target, anchor) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, button, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, t0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, t1);
 
       if (!mounted) {
         dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click", function () {
           if ((0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.is_function)(
           /*copy*/
-          ctx[6]))
+          ctx[5]))
             /*copy*/
-            ctx[6].apply(this, arguments);
+            ctx[5].apply(this, arguments);
         });
         mounted = true;
       }
     },
     p: function p(new_ctx, dirty) {
       ctx = new_ctx;
+      if (dirty &
+      /*payment*/
+      1 && t0_value !== (t0_value =
+      /*Converter*/
+      ctx[3].atomicUnitsToXmr(
+      /*payment*/
+      ctx[0].amount) + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t0, t0_value);
     },
     d: function d(detaching) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(button);
@@ -398,37 +413,45 @@ function create_default_slot_3(ctx) {
       dispose();
     }
   };
-} // (67:4) <CopyToClipboard text="{payment.address}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
+} // (68:4) <CopyToClipboard text="{payment.address}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
 
 
 function create_default_slot_2(ctx) {
   var button;
+  var t_value =
+  /*payment*/
+  ctx[0].address + "";
+  var t;
   var mounted;
   var dispose;
   return {
     c: function c() {
       button = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
-      button.textContent = "".concat(
-      /*payment*/
-      ctx[0].address);
+      t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t_value);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "class", "value");
     },
     m: function m(target, anchor) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, button, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, t);
 
       if (!mounted) {
         dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click", function () {
           if ((0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.is_function)(
           /*copy*/
-          ctx[6]))
+          ctx[5]))
             /*copy*/
-            ctx[6].apply(this, arguments);
+            ctx[5].apply(this, arguments);
         });
         mounted = true;
       }
     },
     p: function p(new_ctx, dirty) {
       ctx = new_ctx;
+      if (dirty &
+      /*payment*/
+      1 && t_value !== (t_value =
+      /*payment*/
+      ctx[0].address + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t, t_value);
     },
     d: function d(detaching) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(button);
@@ -436,37 +459,45 @@ function create_default_slot_2(ctx) {
       dispose();
     }
   };
-} // (77:4) <CopyToClipboard text="{payment.payment_id}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
+} // (78:4) <CopyToClipboard text="{payment.payment_id}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
 
 
 function create_default_slot_1(ctx) {
   var button;
+  var t_value =
+  /*payment*/
+  ctx[0].payment_id + "";
+  var t;
   var mounted;
   var dispose;
   return {
     c: function c() {
       button = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
-      button.textContent = "".concat(
-      /*payment*/
-      ctx[0].payment_id);
+      t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t_value);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "class", "value");
     },
     m: function m(target, anchor) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, button, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, t);
 
       if (!mounted) {
         dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click", function () {
           if ((0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.is_function)(
           /*copy*/
-          ctx[6]))
+          ctx[5]))
             /*copy*/
-            ctx[6].apply(this, arguments);
+            ctx[5].apply(this, arguments);
         });
         mounted = true;
       }
     },
     p: function p(new_ctx, dirty) {
       ctx = new_ctx;
+      if (dirty &
+      /*payment*/
+      1 && t_value !== (t_value =
+      /*payment*/
+      ctx[0].payment_id + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t, t_value);
     },
     d: function d(detaching) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(button);
@@ -474,50 +505,80 @@ function create_default_slot_1(ctx) {
       dispose();
     }
   };
-} // (87:4) <CopyToClipboard text="{payment.uri}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
+} // (88:4) <CopyToClipboard text="{payment.uri}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
 
 
 function create_default_slot(ctx) {
   var button;
+  var t_value =
+  /*payment*/
+  ctx[0].uri + "";
+  var t;
   var mounted;
   var dispose;
   return {
     c: function c() {
       button = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
-      button.textContent = "".concat(
-      /*payment*/
-      ctx[0].uri);
+      t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t_value);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "class", "value");
     },
     m: function m(target, anchor) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, button, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(button, t);
 
       if (!mounted) {
         dispose = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(button, "click", function () {
           if ((0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.is_function)(
           /*copy*/
-          ctx[6]))
+          ctx[5]))
             /*copy*/
-            ctx[6].apply(this, arguments);
+            ctx[5].apply(this, arguments);
         });
         mounted = true;
       }
     },
     p: function p(new_ctx, dirty) {
       ctx = new_ctx;
+      if (dirty &
+      /*payment*/
+      1 && t_value !== (t_value =
+      /*payment*/
+      ctx[0].uri + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t, t_value);
     },
     d: function d(detaching) {
       if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(button);
       mounted = false;
       dispose();
+    }
+  };
+} // (100:2) {#if payment.status === 'completed'}
+
+
+function create_if_block(ctx) {
+  var div;
+  return {
+    c: function c() {
+      div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div.innerHTML = "<span>Payment completed</span> \n\t\t\t\t<span><a href=\"/yourwebsite\">Go back to website</a></span>";
+    },
+    m: function m(target, anchor) {
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
+    },
+    d: function d(detaching) {
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div);
     }
   };
 }
 
 function create_fragment(ctx) {
-  var div13;
+  var div14;
   var div1;
   var div0;
+  var t0;
+  var t1_value =
+  /*payment*/
+  ctx[0]._id + "";
+  var t1;
   var t2;
   var div12;
   var div10;
@@ -543,21 +604,26 @@ function create_fragment(ctx) {
   var t14;
   var div11;
   var qrcode;
+  var t15;
+  var div13;
+  var div13_class_value;
   var current;
   copytoclipboard0 = new svelte_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3__.default({
     props: {
       text:
+      /*Converter*/
+      ctx[3].atomicUnitsToXmr(
       /*payment*/
-      ctx[0].amount,
+      ctx[0].amount),
       $$slots: {
         "default": [create_default_slot_3, function (_ref) {
           var copy = _ref.copy;
           return {
-            6: copy
+            5: copy
           };
         }, function (_ref2) {
           var copy = _ref2.copy;
-          return copy ? 64 : 0;
+          return copy ? 32 : 0;
         }]
       },
       $$scope: {
@@ -580,11 +646,11 @@ function create_fragment(ctx) {
         "default": [create_default_slot_2, function (_ref3) {
           var copy = _ref3.copy;
           return {
-            6: copy
+            5: copy
           };
         }, function (_ref4) {
           var copy = _ref4.copy;
-          return copy ? 64 : 0;
+          return copy ? 32 : 0;
         }]
       },
       $$scope: {
@@ -607,11 +673,11 @@ function create_fragment(ctx) {
         "default": [create_default_slot_1, function (_ref5) {
           var copy = _ref5.copy;
           return {
-            6: copy
+            5: copy
           };
         }, function (_ref6) {
           var copy = _ref6.copy;
-          return copy ? 64 : 0;
+          return copy ? 32 : 0;
         }]
       },
       $$scope: {
@@ -634,11 +700,11 @@ function create_fragment(ctx) {
         "default": [create_default_slot, function (_ref7) {
           var copy = _ref7.copy;
           return {
-            6: copy
+            5: copy
           };
         }, function (_ref8) {
           var copy = _ref8.copy;
-          return copy ? 64 : 0;
+          return copy ? 32 : 0;
         }]
       },
       $$scope: {
@@ -662,14 +728,16 @@ function create_fragment(ctx) {
       background: "#ffffff"
     }
   });
+  var if_block =
+  /*payment*/
+  ctx[0].status === "completed" && create_if_block(ctx);
   return {
     c: function c() {
-      div13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div14 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      div0.textContent = "Order id: ".concat(
-      /*payment*/
-      ctx[0]._id);
+      t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)("Order id: ");
+      t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t1_value);
       t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       div12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
@@ -699,6 +767,9 @@ function create_fragment(ctx) {
       t14 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       div11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_component)(qrcode.$$.fragment);
+      t15 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      div13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      if (if_block) if_block.c();
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div0, "class", "title");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div1, "class", "gateway-header");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div2, "class", "key");
@@ -712,14 +783,19 @@ function create_fragment(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div10, "class", "data");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div11, "class", "qrcode-container");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div12, "class", "gateway-body");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div13, "class", "gateway-container");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div13, "class", div13_class_value = "gateway-footer " + (
+      /*payment*/
+      ctx[0].status === "completed" ? "success" : ""));
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div14, "class", "gateway-container");
     },
     m: function m(target, anchor) {
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div13, anchor);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, div1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div14, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div14, div1);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div1, div0);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, t2);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div13, div12);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, t0);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div0, t1);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div14, t2);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div14, div12);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div12, div10);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div10, div3);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div3, div2);
@@ -743,17 +819,32 @@ function create_fragment(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div12, t14);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div12, div11);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.mount_component)(qrcode, div11, null);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div14, t15);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div14, div13);
+      if (if_block) if_block.m(div13, null);
       current = true;
     },
     p: function p(ctx, _ref9) {
       var _ref10 = _slicedToArray(_ref9, 1),
           dirty = _ref10[0];
 
+      if ((!current || dirty &
+      /*payment*/
+      1) && t1_value !== (t1_value =
+      /*payment*/
+      ctx[0]._id + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t1, t1_value);
       var copytoclipboard0_changes = {};
+      if (dirty &
+      /*payment*/
+      1) copytoclipboard0_changes.text =
+      /*Converter*/
+      ctx[3].atomicUnitsToXmr(
+      /*payment*/
+      ctx[0].amount);
 
       if (dirty &
-      /*$$scope, copy*/
-      192) {
+      /*$$scope, copy, payment*/
+      97) {
         copytoclipboard0_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -762,10 +853,15 @@ function create_fragment(ctx) {
 
       copytoclipboard0.$set(copytoclipboard0_changes);
       var copytoclipboard1_changes = {};
+      if (dirty &
+      /*payment*/
+      1) copytoclipboard1_changes.text =
+      /*payment*/
+      ctx[0].address;
 
       if (dirty &
-      /*$$scope, copy*/
-      192) {
+      /*$$scope, copy, payment*/
+      97) {
         copytoclipboard1_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -774,10 +870,15 @@ function create_fragment(ctx) {
 
       copytoclipboard1.$set(copytoclipboard1_changes);
       var copytoclipboard2_changes = {};
+      if (dirty &
+      /*payment*/
+      1) copytoclipboard2_changes.text =
+      /*payment*/
+      ctx[0].payment_id;
 
       if (dirty &
-      /*$$scope, copy*/
-      192) {
+      /*$$scope, copy, payment*/
+      97) {
         copytoclipboard2_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -786,10 +887,15 @@ function create_fragment(ctx) {
 
       copytoclipboard2.$set(copytoclipboard2_changes);
       var copytoclipboard3_changes = {};
+      if (dirty &
+      /*payment*/
+      1) copytoclipboard3_changes.text =
+      /*payment*/
+      ctx[0].uri;
 
       if (dirty &
-      /*$$scope, copy*/
-      192) {
+      /*$$scope, copy, payment*/
+      97) {
         copytoclipboard3_changes.$$scope = {
           dirty: dirty,
           ctx: ctx
@@ -797,6 +903,34 @@ function create_fragment(ctx) {
       }
 
       copytoclipboard3.$set(copytoclipboard3_changes);
+      var qrcode_changes = {};
+      if (dirty &
+      /*payment*/
+      1) qrcode_changes.value =
+      /*payment*/
+      ctx[0].uri;
+      qrcode.$set(qrcode_changes);
+
+      if (
+      /*payment*/
+      ctx[0].status === "completed") {
+        if (if_block) {} else {
+          if_block = create_if_block(ctx);
+          if_block.c();
+          if_block.m(div13, null);
+        }
+      } else if (if_block) {
+        if_block.d(1);
+        if_block = null;
+      }
+
+      if (!current || dirty &
+      /*payment*/
+      1 && div13_class_value !== (div13_class_value = "gateway-footer " + (
+      /*payment*/
+      ctx[0].status === "completed" ? "success" : ""))) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div13, "class", div13_class_value);
+      }
     },
     i: function i(local) {
       if (current) return;
@@ -816,26 +950,20 @@ function create_fragment(ctx) {
       current = false;
     },
     d: function d(detaching) {
-      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div13);
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div14);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(copytoclipboard0);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(copytoclipboard1);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(copytoclipboard2);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(copytoclipboard3);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(qrcode);
+      if (if_block) if_block.d();
     }
   };
 }
 
-function instance($$self) {
-  var payment = window.payment; // play with clipboard
-
-  var is_copy = false;
-  is_copy = true;
-  setTimeout(function () {
-    return is_copy = false;
-  }, 3000); // play with qrcode
-
-  var window_width = window.innerWidth; // socket io
+function instance($$self, $$props, $$invalidate) {
+  var payment = window.payment; //payment.status = 'completed'
+  // socket io
 
   var io = (0,socket_io_client__WEBPACK_IMPORTED_MODULE_1__.default)("/gateway", {
     query: {
@@ -844,6 +972,7 @@ function instance($$self) {
     }
   });
   io.on("pop", function (message) {
+    $$invalidate(0, payment.status = "completed", payment);
     sweetalert__WEBPACK_IMPORTED_MODULE_4___default()("Payment received", "thanks you", "success");
   });
 
@@ -855,7 +984,15 @@ function instance($$self) {
     alert("failed to copy :(");
   };
 
-  return [payment, handleSuccessfullyCopied, handleFailedCopy];
+  var Converter = {
+    xmrToAtomicUnits: function xmrToAtomicUnits(number) {
+      return number * 1000000000000;
+    },
+    atomicUnitsToXmr: function atomicUnitsToXmr(number) {
+      return (number / 1000000000000).toFixed(12);
+    }
+  };
+  return [payment, handleSuccessfullyCopied, handleFailedCopy, Converter];
 }
 
 var App = /*#__PURE__*/function (_SvelteComponent) {

@@ -63,5 +63,26 @@
 				background: #fff;
 			}
 		}
-	}	
+	}
+
+	.gateway-footer {
+
+
+		background: #242424;
+		color: #fff;
+		padding: 1rem;
+
+		a {
+			color: #fff;
+			margin-left: 1rem;
+		}
+
+		&.success {
+			background: #239a63;
+		}
+
+		&.error {
+			background: red;
+		}
+	}
 }

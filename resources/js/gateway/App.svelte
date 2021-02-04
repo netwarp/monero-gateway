@@ -5,16 +5,8 @@
 	import swal from 'sweetalert'
 
 	let payment = window.payment
-
-	// play with clipboard
-	let is_copy = false
-	is_copy = true
-	setTimeout( () => is_copy = false, 3000 )
+	//payment.status = 'completed'
 	
-
-	// play with qrcode
-	const window_width = window.innerWidth
-
 	// socket io
 	let io = ioClient(`/gateway`, {
 		query: {
@@ -24,6 +16,7 @@
 	})
 
 	io.on('pop', (message) => {
+		payment.status = 'completed'
 		swal('Payment received', 'thanks you', 'success')
 	})
 
@@ -35,7 +28,15 @@
 		alert('failed to copy :(');
 	}
 
+	const Converter = {
+		xmrToAtomicUnits(number) {
+			return number * 1_000_000_000_000 
+		},
 
+		atomicUnitsToXmr(number) {
+			return (number / 1_000_000_000_000).toFixed(12)
+		}
+	}
 </script>
 
 <div class="gateway-container">
@@ -54,8 +55,8 @@
 					Amount:
 				</div>
 
-				<CopyToClipboard text="{payment.amount}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
-				      <button class="value" on:click={copy}>{payment.amount} XMR</button>
+				<CopyToClipboard text="{Converter.atomicUnitsToXmr(payment.amount)}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
+				      <button class="value" on:click={copy}>{Converter.atomicUnitsToXmr(payment.amount)} XMR</button>
 				</CopyToClipboard>
 			</div>
 
@@ -93,5 +94,14 @@
 		<div class="qrcode-container">
 			<QrCode value="{payment.uri}" padding="0" size="300" background="#ffffff" />
 		</div>	
+	</div>
+
+	<div class="gateway-footer {payment.status === 'completed' ? 'success' : ''}">
+		{#if payment.status === 'completed'}
+			<div>
+				<span>Payment completed</span>
+				<span><a href="/yourwebsite">Go back to website</a></span>
+			</div>
+		{/if}
 	</div>
 </div>

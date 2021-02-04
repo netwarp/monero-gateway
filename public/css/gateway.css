@@ -57,3 +57,22 @@
   background: #fff;
 }
 
+.gateway-container .gateway-footer {
+  background: #242424;
+  color: #fff;
+  padding: 1rem;
+}
+
+.gateway-container .gateway-footer a {
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.gateway-container .gateway-footer.success {
+  background: #239a63;
+}
+
+.gateway-container .gateway-footer.error {
+  background: red;
+}
+
