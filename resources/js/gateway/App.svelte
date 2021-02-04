@@ -1,7 +1,7 @@
 <script>	
 	import ioClient from 'socket.io-client'
 	import QrCode from 'svelte-qrcode'
-	import ClipBoard from 'clipboard'
+	import CopyToClipboard from "svelte-copy-to-clipboard";
 	import swal from 'sweetalert'
 
 	let payment = window.payment
@@ -26,6 +26,16 @@
 	io.on('pop', (message) => {
 		swal('Payment received', 'thanks you', 'success')
 	})
+
+	const handleSuccessfullyCopied = (e) => {
+		alert(`successfully copied to clipboard!`);
+	}
+
+	const handleFailedCopy = () => {
+		alert('failed to copy :(');
+	}
+
+
 </script>
 
 <div class="gateway-container">
@@ -33,9 +43,6 @@
 	<div class="gateway-header">
 		<div class="title">
 			Order id: { payment._id }
-		</div>
-		<div>
-			payment_id: { payment.payment_id }
 		</div>
 	</div>
 
@@ -46,36 +53,40 @@
 				<div class="key">
 					Amount:
 				</div>
-				<div class="value">
-					{ payment.amount } XMR
-				</div>
+
+				<CopyToClipboard text="{payment.amount}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
+				      <button class="value" on:click={copy}>{payment.amount}</button>
+				</CopyToClipboard>
 			</div>
 
 			<div class="kv">
 				<div class="key">
 					Address:
 				</div>
-				<div class="value">
-					{ payment.address }
-				</div>
+
+				<CopyToClipboard text="{payment.address}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
+				      <button class="value" on:click={copy}>{payment.address}</button>
+				</CopyToClipboard>
 			</div>
 
 			<div class="kv">
 				<div class="key">
 					Payment id:
 				</div>
-				<div class="value">
-					{ payment.payment_id }
-				</div>
+
+				<CopyToClipboard text="{payment.payment_id}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
+				      <button class="value" on:click={copy}>{payment.payment_id}</button>
+				</CopyToClipboard>
 			</div>
 
 			<div class="kv">
 				<div class="key">
 					Uri:
 				</div>
-				<div class="value">
-					{ payment.uri }
-				</div>
+
+				<CopyToClipboard text="{payment.uri}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
+				      <button class="value" on:click={copy}>{payment.uri}</button>
+				</CopyToClipboard>
 			</div>
 		</div>
 

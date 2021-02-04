@@ -41,6 +41,17 @@
 				.key {
 					font-weight: bold;
 				}
+
+				.value {
+					background: transparent;
+					border: 1px solid transparent;
+					cursor: pointer;
+					text-align: left;
+					padding: 0;
+					max-width: 100%;
+					font-size: 1.4rem;
+
+				}
 			}
 		}
 
