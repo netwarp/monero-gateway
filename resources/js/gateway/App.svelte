@@ -15,20 +15,20 @@
 	const clipboard = new ClipBoard('.btn')
 
 	clipboard.on('success', function(e) {
-	    console.info('Action:', e.action);
-	    console.info('Text:', e.text);
-	    console.info('Trigger:', e.trigger);
+	    console.info('Action:', e.action)
+	    console.info('Text:', e.text)
+	    console.info('Trigger:', e.trigger)
 
 	    is_copy = true
 
 	    setTimeout( () => is_copy = false, 3000 )
 
-	    e.clearSelection();
+	    e.clearSelection()
 	})
 
 	clipboard.on('error', function(e) {
-	    console.error('Action:', e.action);
-	    console.error('Trigger:', e.trigger);
+	    console.error('Action:', e.action)
+	    console.error('Trigger:', e.trigger)
 	})
 
 
@@ -61,8 +61,6 @@
 
 <div class="gateway-container">
 
-	<button on:click={testSocket}>test specific socket</button>
-
 	<div class="gateway-header">
 		<div class="title">
 			Order: { payment._id }
@@ -74,31 +72,28 @@
 
 	<div class="gateway-body">
 		
-		<div class="alert success hide">
-			
+		<div class="data">
+			<div class="amount">
+				<span class="key">Amount: </span>
+				<span class="value">{ payment.amount }</span>
+			</div>
+
+			<div class="address">
+				<span class="key">Address:</span>
+				<span class="value">{ payment.address }</span>
+			</div>
+
+			<div class="uri">
+				<span class="key">Uri: </span> 
+				<span class="value">{ payment.uri }</span>
+			</div>
 		</div>
 
 		<div class="qrcode-container">
-			<QrCode value="{payment.uri}" padding="10" size="400" />
+			<QrCode value="{payment.uri}" padding="0" size="200" background="#ffffff" />
 		</div>
 
-		<div class="amount">
-			
-		</div>
-
-		<input id="address" value="{payment.txid}" hidden>
-
-		{#if is_copy}
-			<div>
-				Copy in your clipboard
-			</div>
-		{/if}
-
-		<button 
-			class="btn" 
-			data-clipboard-action="cut" data-clipboard-target="#address">
-				{payment.txid}
-		</button>
+		
 	</div>
 
 	<div class="gateway-footer">
