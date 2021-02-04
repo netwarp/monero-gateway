@@ -55,7 +55,7 @@
 				</div>
 
 				<CopyToClipboard text="{payment.amount}" on:copy={handleSuccessfullyCopied} on:fail={handleFailedCopy} let:copy>
-				      <button class="value" on:click={copy}>{payment.amount}</button>
+				      <button class="value" on:click={copy}>{payment.amount} XMR</button>
 				</CopyToClipboard>
 			</div>
 

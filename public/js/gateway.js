@@ -372,7 +372,7 @@ function create_default_slot_3(ctx) {
       button = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("button");
       button.textContent = "".concat(
       /*payment*/
-      ctx[0].amount);
+      ctx[0].amount, " XMR");
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(button, "class", "value");
     },
     m: function m(target, anchor) {
