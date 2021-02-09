@@ -16,9 +16,7 @@ mongoose.connect('mongodb://localhost/gateway', {
 
 
 const redis_client = redis.createClient()
-redis_client.on("error", function(error) {
-	console.error(error)
-})
+redis_client.on('error', (error) => console.log(error))
 
 const monerojs = require("monero-javascript")
 
