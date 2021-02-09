@@ -10,7 +10,7 @@ exports.fetch = async (request, response) => {
 	const res = await axios.post(url_rpc, object_rpc)
 	const data = await res.data
 
-	console.log(data)
+	//console.log(data)
 
 	response.json(data)
 }

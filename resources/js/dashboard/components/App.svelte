@@ -5,6 +5,7 @@
 	import Network from './Network'
 	import Transactions from './Transactions'
 	import Payments from './Payments'
+	import Processing from './Processing'
 </script>
 
 <div class="container-fluid">
@@ -31,12 +32,10 @@
 
 					<li class="{ $view === 'payments' ? 'active' : '' }" on:click={ () => $view = 'payments' }>
 						<span><i class="bi bi-credit-card"></i> Payments <small>( in database)</small></span>
-
-						<ul class="mx-4">
-							<li class="{ $view === 'incoming' ? 'active' : '' }" on:click={ () => $view = 'incoming' }><i class="bi bi-arrow-repeat"></i> Incoming</li>
-						</ul>
 					</li>
-					
+					<li class="mx-2 { $view === 'processing' ? 'active' : '' }" on:click={ () => $view = 'processing' }>
+						<span><i class="bi bi-arrow-repeat"></i> Processing</span>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -61,6 +60,8 @@
 			 		<Transactions />
 			 	{:else if $view === 'payments'}
 			 		<Payments />
+				{:else if $view === 'processing'}
+					<Processing />
 				{/if}
 			 </main>
 		</div>
