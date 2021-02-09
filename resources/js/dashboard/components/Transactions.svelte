@@ -6,6 +6,7 @@
 		in: [],
 		out: []
 	}
+	let balance = {}
 
 	async function fetchTransactions() {
 		try {
@@ -28,12 +29,10 @@
 				object_rpc
 			}
 
-			const reponse = await axios.post(url, object_complete)
+			const response = await axios.post(url, object_complete)
 
-			const data = await reponse.data
+			const data = await response.data
 			const result = data.result
-
-			
 
 			console.log(result)
 
@@ -45,6 +44,39 @@
 	}
 
 	fetchTransactions()
+
+	async function fetchBalance() {
+		try {
+			const url = '/api/rpc'
+
+			const url_rpc = 'http://localhost:18089/json_rpc'
+
+			const object_rpc = {
+				"jsonrpc":"2.0",
+				"id":"0",
+				"method":"get_balance",
+				"params": {
+				}
+			}
+
+			const object_complete = {
+				url_rpc,
+				object_rpc
+			}
+
+			const response = await axios.post(url, object_complete)
+
+			const data = await response.data
+			const result = data.result
+			console.log(result)
+
+			balance = result
+		} catch (error) {
+			swal('Nope', 'Nope', 'error')
+		}
+	}
+
+	fetchBalance()
 
 	function formatLargeString(string) {
 		const start = string.substring(0, 4)
@@ -60,6 +92,15 @@
 
 		<div>
 			<input type="text" class="form-control" placeholder="Search for txid payment_id or address">
+		</div>
+
+		<div class="card mt-3">
+			<div class="card-header">
+				Balance
+			</div>
+			<div class="card-body">
+				Balance: { balance.balance } | blocks_to_unlock: { balance.blocks_to_unlock } | time_to_unlock: { balance.time_to_unlock }
+			</div>
 		</div>
 
 		<div class="card mt-3">
