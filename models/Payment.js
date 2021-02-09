@@ -10,6 +10,7 @@ const schema = new Schema(
 	    },
 	    amount: Number,
 	 	payment_id: String,
+		transactions: [],
 	 	tx_description: String,
 	 	uri: String,
 	}, 
