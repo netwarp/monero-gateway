@@ -4,7 +4,7 @@ const Payment = require('../../models/Payment')
 
 exports.index = async (request, response) => {
 
-	const payments = await Payment.find()
+	const payments = await Payment.find().sort({'_id': -1})
 
 	return response.json(payments)	
 }
@@ -26,7 +26,6 @@ exports.store = async (request,response) => {
 
 	const integrated_address = result.integrated_address
 	const payment_id = result.payment_id
-
 
 	const amount = request.body.amount
 	const tx_description = request.body.tx_description ?? ''
