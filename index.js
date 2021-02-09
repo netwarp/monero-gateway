@@ -12,13 +12,13 @@ mongoose.connect('mongodb://localhost/gateway', {
 	useNewUrlParser: true, 
 	useUnifiedTopology: true, 
 	useFindAndModify: false
-})
+}).then(() => console.log('mongodb connected successfully'))
 
 
 const redis_client = redis.createClient()
 redis_client.on('error', (error) => console.log(error))
 
-const monerojs = require("monero-javascript")
+//const monerojs = require("monero-javascript")
 
 const PORT = 8080
 
@@ -30,8 +30,9 @@ nunjucks.configure('views', {
 
 const subscriber = redis.createClient()
 //const publisher = redis.createClient()
-const SubscriberHandler = require('./subscribe/index')
 
+subscriber.subscribe('tx')
+const SubscriberHandler = require('./subscribe/index')
 subscriber.on('message',(channel, message) => {
 	
     console.log('new payment here')
@@ -44,8 +45,6 @@ subscriber.on('message',(channel, message) => {
 // sockets
 require('./sockets/index')(io)
 
-subscriber.subscribe('tx')
-
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
@@ -54,9 +53,6 @@ const api_router = require('./routes/api')
 
 app.use('/', web_router)
 app.use('/api', api_router)
-
-
-
 
 http.listen(PORT, () => {
 	console.log('listening on *:' + PORT)

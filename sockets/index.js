@@ -44,15 +44,11 @@ module.exports = async (io) => {
 				break
 		}
 
-		
-
 		// console.log(payment_id)
 		// console.log(socket.id)
 
 		map_socket_payment.set(socket.id, payment_id)
 		console.log(map_socket_payment)
-
-		
 
 		socket.on('disconnect', async () => {
 			
@@ -92,39 +88,6 @@ module.exports = async (io) => {
 
 	dashboard_namespace.on('connection', socket => {
 
-		socket.on('tx_done', async (txid) => {
-
-			console.log('new tx here;; controller socket')
-
-			let res
-			let data
-			let result
-
-			res = await axios.post('http://localhost:18089/json_rpc', {
-				"jsonrpc":"2.0", 
-				"id":"0", 
-				"method":"get_transfer_by_txid",
-				"params": {
-					txid
-				}
-			})
-
-			data = await res.data
-			result = await data.result
-
-			const payment_id = result.transfer.payment_id
-			const status = 'completed'
-
-			console.log('payment_id: ',payment_id)
-
-			const payment = await Payment.findOneAndUpdate({ payment_id }, {status})
-
-			console.log('payment: ', payment)
-
-			socket.emit('update_payment', payment_id, status)
-
-			gateway_namespace.emit('pop')
-		})
 
 		socket.on('test', () => console.log('test'))
 	})
