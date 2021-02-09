@@ -89,7 +89,9 @@ module.exports = async (io) => {
 	dashboard_namespace.on('connection', socket => {
 
 
-		socket.on('test', () => console.log('test'))
+		socket.on('refresh-processing-client-ask-server', () => {
+			socket.emit('refresh-processing-server-answer-client', map_socket_payment)
+		})
 	})
 
 	return io 
