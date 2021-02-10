@@ -23,13 +23,17 @@ module.exports = async (io) => {
 		switch (payment.status) {
 			case 'initialised':
 
-				await payment.update({ status: 'pending' })
+				payment.status = 'pending'
+				payment.save()
+
 				dashboard_namespace.emit('update_payment', payment_id, 'pending')
 
 				break
 			case 'pending':
 
-				await payment.update({ status: 'pending' })
+				payment.status = 'pending'
+				payment.save()
+
 				dashboard_namespace.emit('update_payment', payment_id, 'pending')
 
 				break
@@ -38,7 +42,9 @@ module.exports = async (io) => {
 				break
 			case 'cancelled':
 
-				await payment.update({ status: 'pending' })
+				payment.status = 'pending'
+				payment.save()
+
 				dashboard_namespace.emit('update_payment', payment_id, 'pending')
 				
 				break
@@ -48,7 +54,7 @@ module.exports = async (io) => {
 		// console.log(socket.id)
 
 		map_socket_payment.set(socket.id, payment_id)
-		console.log(map_socket_payment)
+	//	console.log(map_socket_payment)
 
 		socket.on('disconnect', async () => {
 			
@@ -57,25 +63,33 @@ module.exports = async (io) => {
 			switch (payment.status) {
 				case 'initialised':
 
-					await payment.update({ status: 'cancelled' })
+					payment.status = 'cancelled'
+					payment.save()
+
 					dashboard_namespace.emit('update_payment', payment_id, 'cancelled')
 
 					break
 				case 'pending':
 
-					await payment.update({ status: 'cancelled' })
+					payment.status = 'cancelled'
+					payment.save()
+
 					dashboard_namespace.emit('update_payment', payment_id, 'cancelled')
 
 					break
 				case 'completed':
 
-					await payment.update({ status: 'completed' })
-					dashboard_namespace.emit('update_payment', payment_id, 'completed')
+					payment.status = 'cancelled'
+					payment.save()
+
+					dashboard_namespace.emit('update_payment', payment_id, 'cancelled')
 
 					break
 				case 'cancelled':
 
-					await payment.update({ status: 'cancelled' })
+					payment.status = 'cancelled'
+					payment.save()
+
 					dashboard_namespace.emit('update_payment', payment_id, 'cancelled')
 
 					break
@@ -87,7 +101,6 @@ module.exports = async (io) => {
 	const dashboard_namespace = io.of('/dashboard')
 
 	dashboard_namespace.on('connection', socket => {
-
 
 		socket.on('refresh-processing-client-ask-server', () => {
 			socket.emit('refresh-processing-server-answer-client', map_socket_payment)

@@ -1,7 +1,6 @@
 const axios = require('axios')
 const Payment = require('../models/Payment')
 
-
 exports.tx = async (txid, io) => {
 
 	let res 
@@ -24,10 +23,17 @@ exports.tx = async (txid, io) => {
 	
 	const status = 'completed'
 
-	const payment = await Payment.findOneAndUpdate({ payment_id, status })
+	const payment = await Payment.findOne({
+		payment_id
+	})
+	payment.status = status
+	payment.transactions.push(txid)
+	payment.save()
+
 
 	io.of('/gateway').emit('pop')
 	io.of('/dashboard').emit('update_payment', payment_id, status)
 
 	console.log('all done')
+	console.log(payment)
 }
