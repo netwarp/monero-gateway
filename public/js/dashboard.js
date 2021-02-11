@@ -1927,7 +1927,7 @@ function create_if_block_4(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(processing, detaching);
     }
   };
-} // (61:36) 
+} // (66:36) 
 
 
 function create_if_block_3(ctx) {
@@ -1955,7 +1955,7 @@ function create_if_block_3(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(payments, detaching);
     }
   };
-} // (59:40) 
+} // (64:40) 
 
 
 function create_if_block_2(ctx) {
@@ -1983,7 +1983,7 @@ function create_if_block_2(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(transactions, detaching);
     }
   };
-} // (57:35) 
+} // (62:35) 
 
 
 function create_if_block_1(ctx) {
@@ -2011,7 +2011,7 @@ function create_if_block_1(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(network, detaching);
     }
   };
-} // (55:5) {#if $view === 'home'}
+} // (60:5) {#if $view === 'home'}
 
 
 function create_if_block(ctx) {
@@ -2067,9 +2067,13 @@ function create_fragment(ctx) {
   var span4;
   var li4_class_value;
   var t11;
+  var li5;
+  var span5;
+  var li5_class_value;
+  var t13;
   var div4;
   var div3;
-  var t13;
+  var t15;
   var main;
   var current_block_type_index;
   var if_block;
@@ -2127,12 +2131,16 @@ function create_fragment(ctx) {
       t9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       li4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("li");
       span4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("span");
-      span4.innerHTML = "<i class=\"bi bi-arrow-repeat\"></i> Processing";
+      span4.innerHTML = "<i class=\"bi bi-gear\"></i> Account setting";
       t11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      li5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("li");
+      span5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("span");
+      span5.innerHTML = "<i class=\"bi bi-arrow-repeat\"></i> Processing";
+      t13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       div4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
       div3.innerHTML = "<header class=\"\"><div class=\"nav_item\"><i class=\"bi bi-person-circle\"></i></div> \n\t\t\t \t<div class=\"nav_item\"><i class=\"bi bi-bell\"></i></div></header>";
-      t13 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      t15 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
       main = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("main");
       if (if_block) if_block.c();
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(li0, "class", li0_class_value =
@@ -2147,7 +2155,10 @@ function create_fragment(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(li3, "class", li3_class_value =
       /*$view*/
       ctx[0] === "payments" ? "active" : "");
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(li4, "class", li4_class_value = "mx-2 " + (
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(li4, "class", li4_class_value =
+      /*$view*/
+      ctx[0] === "settings" ? "active" : "");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(li5, "class", li5_class_value = "mx-2 " + (
       /*$view*/
       ctx[0] === "processing" ? "active" : ""));
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div0, "class", "col-md-2");
@@ -2177,10 +2188,13 @@ function create_fragment(ctx) {
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(ul, t9);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(ul, li4);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(li4, span4);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div5, t11);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(ul, t11);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(ul, li5);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(li5, span5);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div5, t13);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div5, div4);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, div3);
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t13);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, t15);
       (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div4, main);
 
       if (~current_block_type_index) {
@@ -2200,7 +2214,9 @@ function create_fragment(ctx) {
         /*click_handler_3*/
         ctx[4]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(li4, "click",
         /*click_handler_4*/
-        ctx[5])];
+        ctx[5]), (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.listen)(li5, "click",
+        /*click_handler_5*/
+        ctx[6])];
         mounted = true;
       }
     },
@@ -2242,10 +2258,18 @@ function create_fragment(ctx) {
 
       if (!current || dirty &
       /*$view*/
-      1 && li4_class_value !== (li4_class_value = "mx-2 " + (
+      1 && li4_class_value !== (li4_class_value =
+      /*$view*/
+      ctx[0] === "settings" ? "active" : "")) {
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(li4, "class", li4_class_value);
+      }
+
+      if (!current || dirty &
+      /*$view*/
+      1 && li5_class_value !== (li5_class_value = "mx-2 " + (
       /*$view*/
       ctx[0] === "processing" ? "active" : ""))) {
-        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(li4, "class", li4_class_value);
+        (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(li5, "class", li5_class_value);
       }
 
       var previous_block_index = current_block_type_index;
@@ -2320,10 +2344,14 @@ function instance($$self, $$props, $$invalidate) {
   };
 
   var click_handler_4 = function click_handler_4() {
+    return (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_store_value)(_stores__WEBPACK_IMPORTED_MODULE_1__.view, $view = "settings", $view);
+  };
+
+  var click_handler_5 = function click_handler_5() {
     return (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_store_value)(_stores__WEBPACK_IMPORTED_MODULE_1__.view, $view = "processing", $view);
   };
 
-  return [$view, click_handler, click_handler_1, click_handler_2, click_handler_3, click_handler_4];
+  return [$view, click_handler, click_handler_1, click_handler_2, click_handler_3, click_handler_4, click_handler_5];
 }
 
 var App = /*#__PURE__*/function (_SvelteComponent) {
@@ -2382,21 +2410,31 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 function create_fragment(ctx) {
-  var div4;
+  var div12;
+  var t11;
+  var div17;
   return {
     c: function c() {
-      div4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-      div4.innerHTML = "<div class=\"col-md\"><div class=\"card\"><div class=\"card-header\">Latest transactions</div> \n\t\t\t<div class=\"card-body\"><table class=\"table\"><thead><tr><th>ID</th> \n\t\t\t\t\t\t\t<th>Status</th> \n\t\t\t\t\t\t\t<th>Amount</th> \n\t\t\t\t\t\t\t<th>Created at</th> \n\t\t\t\t\t\t\t<th>Updated at</th></tr></thead> \n\t\t\t\t\t<tbody><tr><td>ezez</td> \n\t\t\t\t\t\t\t<td><i class=\"bi bi-circle-fill\"></i> Completed</td> \n\t\t\t\t\t\t\t<td>1.2</td> \n\t\t\t\t\t\t\t<td>22/22/22</td> \n\t\t\t\t\t\t\t<td>22/22/22</td></tr></tbody></table></div></div></div>";
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div4, "class", "row mt-3");
+      div12 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div12.innerHTML = "<div class=\"col-md\"><div class=\"card\"><div class=\"card-header\">Transactions today</div> \n\t\t\t<div class=\"card-body\">22</div></div></div> \n\t<div class=\"col-md\"><div class=\"card\"><div class=\"card-header\">Transactions this week</div> \n\t\t\t<div class=\"card-body\">22</div></div></div> \n\t<div class=\"col-md\"><div class=\"card\"><div class=\"card-header\">Transactions totals</div> \n\t\t\t<div class=\"card-body\">200</div></div></div>";
+      t11 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+      div17 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+      div17.innerHTML = "<div class=\"col-md\"><div class=\"card\"><div class=\"card-header\">Latest transactions</div> \n\t\t\t<div class=\"card-body\"><table class=\"table\"><thead><tr><th>ID</th> \n\t\t\t\t\t\t\t<th>Status</th> \n\t\t\t\t\t\t\t<th>Amount</th> \n\t\t\t\t\t\t\t<th>Created at</th> \n\t\t\t\t\t\t\t<th>Updated at</th></tr></thead> \n\t\t\t\t\t<tbody><tr><td>ezez</td> \n\t\t\t\t\t\t\t<td><i class=\"bi bi-circle-fill\"></i> Completed</td> \n\t\t\t\t\t\t\t<td>1.2</td> \n\t\t\t\t\t\t\t<td>22/22/22</td> \n\t\t\t\t\t\t\t<td>22/22/22</td></tr></tbody></table></div></div></div>";
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div12, "class", "row mt-3 text-center");
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div17, "class", "row mt-3");
     },
     m: function m(target, anchor) {
-      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div4, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div12, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, t11, anchor);
+      (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div17, anchor);
     },
     p: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
     i: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
     o: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
     d: function d(detaching) {
-      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div4);
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div12);
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(t11);
+      if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div17);
     }
   };
 }

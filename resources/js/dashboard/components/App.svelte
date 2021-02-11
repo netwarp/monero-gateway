@@ -33,6 +33,11 @@
 					<li class="{ $view === 'payments' ? 'active' : '' }" on:click={ () => $view = 'payments' }>
 						<span><i class="bi bi-credit-card"></i> Payments <small>( in database)</small></span>
 					</li>
+
+					<li class="{ $view === 'settings' ? 'active' : '' }" on:click={ () => $view = 'settings' }>
+						<span><i class="bi bi-gear"></i> Account setting </span>
+					</li>
+
 					<li class="mx-2 { $view === 'processing' ? 'active' : '' }" on:click={ () => $view = 'processing' }>
 						<span><i class="bi bi-arrow-repeat"></i> Processing</span>
 					</li>

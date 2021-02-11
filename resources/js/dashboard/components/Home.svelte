@@ -14,7 +14,38 @@
 		}
 	]
 </script>
-
+<div class="row mt-3 text-center">
+	<div class="col-md">
+		<div class="card">
+			<div class="card-header">
+				Transactions today
+			</div>
+			<div class="card-body">
+				22
+			</div>
+		</div>
+	</div>
+	<div class="col-md">
+		<div class="card">
+			<div class="card-header">
+				Transactions this week
+			</div>
+			<div class="card-body">
+				22
+			</div>
+		</div>
+	</div>
+	<div class="col-md">
+		<div class="card">
+			<div class="card-header">
+				Transactions totals
+			</div>
+			<div class="card-body">
+				200
+			</div>
+		</div>
+	</div>
+</div>
 <div class="row mt-3">
 	<div class="col-md">
 		<div class="card">
