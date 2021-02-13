@@ -12,3 +12,4 @@ for i in $programs; do
 	fi
 done
 
+./extras/monero-wallet-rpc --rpc-bind-ip 127.0.0.1 --rpc-bind-port 18089 --disable-rpc-login --log-level 2 --wallet-file sn1 --prompt-for-password --stagenet --tx-notify="/usr/bin/redis-cli --raw PUBLISH tx %s"
